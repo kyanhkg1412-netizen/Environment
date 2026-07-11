@@ -1,0 +1,3935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081F4D">
+  <meta name="description" content="Interactive environmental vocabulary lesson with pronunciation, Vietnamese meanings, ten exercises, scoring, and progress tracking.">
+  <title>Environmental Vocabulary Practice</title>
+  <style>
+
+:root {
+  /* Primary deep-blue identity */
+  --site-primary: #123B8F;
+  --site-primary-hover: #0F327A;
+  --site-primary-active: #0A285F;
+  --site-primary-dark: #081F4D;
+  --site-primary-deep: #061738;
+  --site-primary-soft: #EAF1FF;
+  --site-primary-pale: #F4F7FF;
+  /* Secondary blue */
+  --site-secondary: #2563C7;
+  --site-secondary-hover: #1E52A7;
+  --site-secondary-active: #19458D;
+  --site-secondary-soft: #E8F0FF;
+  /* Supporting accent */
+  --site-accent: #4F8CFF;
+  --site-accent-hover: #3977E8;
+  --site-accent-soft: #EAF2FF;
+  /* Semantic colours */
+  --site-success: #177A45;
+  --site-success-soft: #E9F7EF;
+  --site-danger: #B93832;
+  --site-danger-soft: #FCECEB;
+  --site-warning: #8A5700;
+  --site-warning-soft: #FFF4D8;
+  --site-info: #2457A6;
+  --site-info-soft: #EAF2FF;
+  /* Neutral surfaces */
+  --site-page: #EDF3FC;
+  --site-page-deep: #DCE7F8;
+  --site-surface: #FFFFFF;
+  --site-surface-soft: #F8FAFF;
+  --site-surface-muted: #EEF3FA;
+  /* Text */
+  --site-text: #10213F;
+  --site-text-soft: #344563;
+  --site-muted: #62708A;
+  --site-text-on-dark: #FFFFFF;
+  --site-text-on-dark-soft: #DDE8FF;
+  /* Borders */
+  --site-border: #D5E0F0;
+  --site-border-strong: #AFC1DA;
+  --site-border-on-dark: rgba(255, 255, 255, 0.24);
+  /* Focus */
+  --site-focus: #FFBF47;
+  /* Glass system */
+  --site-glass-light: rgba(255, 255, 255, 0.72);
+  --site-glass-light-strong: rgba(255, 255, 255, 0.88);
+  --site-glass-blue: rgba(18, 59, 143, 0.72);
+  --site-glass-blue-strong: rgba(8, 31, 77, 0.88);
+  --site-glass-border-light: rgba(255, 255, 255, 0.56);
+  --site-glass-border-blue: rgba(255, 255, 255, 0.20);
+  --site-glass-blur: 16px;
+  --site-glass-saturation: 135%;
+  /* Overlays */
+  --site-overlay: rgba(6, 23, 56, 0.68);
+  /* Radius */
+  --site-radius-xs: 6px;
+  --site-radius-sm: 10px;
+  --site-radius-md: 16px;
+  --site-radius-lg: 24px;
+  --site-radius-xl: 32px;
+  --site-radius-pill: 999px;
+  /* Shadows */
+  --site-shadow-xs: 0 1px 3px rgba(8, 31, 77, 0.08);
+  --site-shadow-sm: 0 5px 16px rgba(8, 31, 77, 0.10);
+  --site-shadow-md: 0 14px 36px rgba(8, 31, 77, 0.14);
+  --site-shadow-lg: 0 24px 60px rgba(8, 31, 77, 0.18);
+  --site-glass-shadow: 0 16px 40px rgba(8, 31, 77, 0.16);
+  /* Spacing */
+  --site-space-1: 0.25rem;
+  --site-space-2: 0.5rem;
+  --site-space-3: 0.75rem;
+  --site-space-4: 1rem;
+  --site-space-5: 1.5rem;
+  --site-space-6: 2rem;
+  --site-space-7: 3rem;
+  --site-space-8: 4rem;
+  /* Dimensions */
+  --site-content-width: 1180px;
+  --site-reading-width: 760px;
+  --site-header-height: 72px;
+  /* Typography */
+  --site-font-size: 18px;
+  --site-line-height: 1.65;
+  /* Motion */
+  --site-transition-fast: 140ms ease;
+  --site-transition-normal: 220ms ease;
+  --site-transition-slow: 360ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+  font-size: var(--site-font-size);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--site-text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: var(--site-line-height);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(79, 140, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 92% 8%, rgba(18, 59, 143, 0.13), transparent 32%),
+    linear-gradient(180deg, #F8FAFF 0%, var(--site-page) 45%, #FFFFFF 100%);
+}
+
+body::before,
+body::after {
+  position: fixed;
+  z-index: -1;
+  width: 18rem;
+  height: 18rem;
+  content: "";
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.14;
+  filter: blur(2px);
+}
+
+body::before {
+  top: 14rem;
+  right: -8rem;
+  background: var(--site-accent);
+}
+
+body::after {
+  bottom: 8rem;
+  left: -9rem;
+  background: var(--site-secondary);
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+a {
+  color: var(--site-secondary);
+}
+
+a:hover {
+  color: var(--site-primary-hover);
+}
+
+:focus-visible {
+  outline: 3px solid var(--site-focus);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--site-text-on-dark);
+  background: var(--site-secondary);
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  color: var(--site-text-on-dark);
+  background: var(--site-primary-deep);
+  border-radius: var(--site-radius-sm);
+  transform: translateY(-180%);
+  transition: transform var(--site-transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.glass-panel {
+  background: var(--site-glass-light);
+  border: 1px solid var(--site-glass-border-light);
+  box-shadow: var(--site-glass-shadow);
+  backdrop-filter: blur(var(--site-glass-blur)) saturate(var(--site-glass-saturation));
+  -webkit-backdrop-filter: blur(var(--site-glass-blur)) saturate(var(--site-glass-saturation));
+}
+
+.glass-panel--blue {
+  color: var(--site-text-on-dark);
+  background: var(--site-glass-blue);
+  border: 1px solid var(--site-glass-border-blue);
+  box-shadow: var(--site-glass-shadow);
+  backdrop-filter: blur(var(--site-glass-blur)) saturate(var(--site-glass-saturation));
+  -webkit-backdrop-filter: blur(var(--site-glass-blur)) saturate(var(--site-glass-saturation));
+}
+
+.glass-panel--strong {
+  background: var(--site-glass-light-strong);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-panel {
+    background: #FFFFFF;
+  }
+
+  .glass-panel--blue {
+    background: var(--site-primary-dark);
+  }
+}
+
+.site-header {
+  position: relative;
+  z-index: 20;
+  color: var(--site-text-on-dark);
+  background:
+    linear-gradient(135deg, rgba(6, 23, 56, 0.96), rgba(18, 59, 143, 0.90)),
+    var(--site-primary-dark);
+  border: 0;
+  border-bottom: 1px solid var(--site-border-on-dark);
+  border-radius: 0;
+  box-shadow: var(--site-shadow-md);
+}
+
+.site-header__inner {
+  display: grid;
+  gap: var(--site-space-4);
+  align-items: center;
+  max-width: var(--site-content-width);
+  min-height: var(--site-header-height);
+  padding: 0.85rem var(--site-space-4);
+  margin: 0 auto;
+}
+
+.site-brand {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  min-width: 0;
+}
+
+.site-brand__mark {
+  display: grid;
+  flex: 0 0 2.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  font-size: 1.25rem;
+  color: var(--site-primary-dark);
+  background: var(--site-text-on-dark);
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+.site-brand__text {
+  display: grid;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.site-brand__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--site-text-on-dark-soft);
+  letter-spacing: 0.04em;
+}
+
+.site-brand__lesson-title {
+  overflow: hidden;
+  font-size: 1.08rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-header__status {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.status-pill {
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--site-radius-sm);
+}
+
+.status-pill__label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--site-text-on-dark-soft);
+  letter-spacing: 0.03em;
+}
+
+.status-pill__value {
+  display: block;
+  overflow: hidden;
+  font-weight: 800;
+  color: var(--site-text-on-dark);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-header__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: flex-start;
+}
+
+.site-navigation {
+  position: relative;
+  z-index: 10;
+  border-color: rgba(175, 193, 218, 0.58);
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  box-shadow: var(--site-shadow-sm);
+}
+
+.site-navigation__inner {
+  display: flex;
+  gap: 0.5rem;
+  max-width: var(--site-content-width);
+  padding: 0.7rem var(--site-space-4);
+  margin: 0 auto;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.site-navigation__link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.45rem;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.55rem 0.85rem;
+  color: var(--site-primary);
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-pill);
+  transition:
+    color var(--site-transition-fast),
+    background var(--site-transition-fast),
+    border-color var(--site-transition-fast),
+    transform var(--site-transition-fast);
+}
+
+.site-navigation__link:hover {
+  color: var(--site-primary-hover);
+  background: var(--site-surface);
+  border-color: var(--site-border-strong);
+  transform: translateY(-1px);
+}
+
+.site-navigation__link.is-active {
+  color: var(--site-text-on-dark);
+  background: var(--site-primary);
+  border-color: var(--site-primary);
+  box-shadow: var(--site-shadow-xs);
+}
+
+.site-navigation__link[data-complete="true"]::after {
+  display: inline-grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
+  color: var(--site-success);
+  font-size: 0.78rem;
+  content: "✓";
+  background: var(--site-success-soft);
+  border-radius: 50%;
+}
+
+.site-navigation__link.is-active[data-complete="true"]::after {
+  color: var(--site-primary-dark);
+  background: #FFFFFF;
+}
+
+.site-main {
+  width: min(100%, calc(var(--site-content-width) + 2rem));
+  padding: var(--site-space-5) var(--site-space-4) 0;
+  margin: 0 auto;
+}
+
+.site-hero,
+.site-section {
+  scroll-margin-top: 1.5rem;
+}
+
+.site-hero__panel {
+  position: relative;
+  overflow: hidden;
+  color: var(--site-text-on-dark);
+  background:
+    linear-gradient(135deg, rgba(6, 23, 56, 0.96), rgba(18, 59, 143, 0.84)),
+    var(--site-primary-dark);
+  border-radius: var(--site-radius-xl);
+}
+
+.site-hero__panel::after {
+  position: absolute;
+  top: -7rem;
+  right: -6rem;
+  width: 18rem;
+  height: 18rem;
+  content: "";
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.20), transparent 68%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.site-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--site-space-6);
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.site-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 32px;
+  padding: 0.25rem 0.7rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--site-primary-dark);
+  letter-spacing: 0.04em;
+  background: #FFFFFF;
+  border-radius: var(--site-radius-pill);
+}
+
+.site-hero h1 {
+  max-width: 760px;
+  margin: 0 0 var(--site-space-4);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.08;
+}
+
+.site-hero__lead {
+  max-width: 720px;
+  margin: 0 0 var(--site-space-5);
+  color: var(--site-text-on-dark-soft);
+  font-size: clamp(1rem, 2vw, 1.22rem);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0 0 var(--site-space-5);
+}
+
+.hero-meta__item {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--site-text-on-dark);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: var(--site-radius-pill);
+}
+
+.site-hero__art {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+}
+
+.site-hero__art svg {
+  width: min(100%, 360px);
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.22));
+}
+
+.session-card {
+  margin-top: var(--site-space-5);
+  padding: var(--site-space-4);
+  color: var(--site-text);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: var(--site-radius-md);
+}
+
+.session-card h2 {
+  margin: 0 0 0.4rem;
+  color: var(--site-primary-dark);
+  font-size: 1.12rem;
+}
+
+.session-card p {
+  margin: 0 0 var(--site-space-4);
+  color: var(--site-muted);
+  font-size: 0.92rem;
+}
+
+.session-grid {
+  display: grid;
+  gap: var(--site-space-3);
+}
+
+.module-root {
+  display: grid;
+  gap: var(--site-space-7);
+  margin-top: var(--site-space-7);
+}
+
+.site-section {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-lg);
+  box-shadow: var(--site-shadow-md);
+}
+
+.section-header {
+  max-width: 860px;
+  margin-bottom: var(--site-space-5);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  color: var(--site-secondary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0 0 0.65rem;
+  color: var(--site-primary-dark);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.18;
+}
+
+.section-description {
+  max-width: var(--site-reading-width);
+  margin: 0;
+  color: var(--site-text-soft);
+}
+
+.section-body {
+  display: grid;
+  gap: var(--site-space-5);
+}
+
+.site-container {
+  width: min(100%, var(--site-content-width));
+  margin: 0 auto;
+}
+
+.content-grid,
+.card-grid,
+.two-column-grid,
+.three-column-grid {
+  display: grid;
+  gap: var(--site-space-4);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--site-space-4);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--site-space-3);
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--site-space-3);
+  align-items: center;
+}
+
+.scroll-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.reading-column {
+  max-width: var(--site-reading-width);
+}
+
+.site-card,
+.activity-card,
+.instruction-card,
+.example-card,
+.strategy-card,
+.summary-card {
+  color: var(--site-text);
+  background: var(--site-surface);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-md);
+  box-shadow: var(--site-shadow-sm);
+}
+
+.site-card {
+  padding: var(--site-space-5);
+}
+
+.site-card--soft {
+  background: var(--site-surface-soft);
+}
+
+.site-card--outlined {
+  box-shadow: none;
+}
+
+.site-card--highlight {
+  background: var(--site-primary-pale);
+  border-color: #BFD0EA;
+}
+
+.site-card--glass {
+  background: var(--site-glass-light);
+}
+
+.activity-card {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.instruction-card,
+.example-card,
+.strategy-card,
+.summary-card {
+  padding: var(--site-space-5);
+}
+
+.btn {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  color: var(--site-text);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  background: var(--site-surface);
+  border: 1px solid transparent;
+  border-radius: var(--site-radius-sm);
+  box-shadow: var(--site-shadow-xs);
+  transition:
+    color var(--site-transition-fast),
+    background var(--site-transition-fast),
+    border-color var(--site-transition-fast),
+    box-shadow var(--site-transition-fast),
+    transform var(--site-transition-fast);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--site-shadow-sm);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+.btn--primary {
+  color: var(--site-text-on-dark);
+  background: var(--site-primary);
+  border-color: var(--site-primary);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--site-primary-hover);
+  border-color: var(--site-primary-hover);
+}
+
+.btn--primary:active:not(:disabled) {
+  background: var(--site-primary-active);
+}
+
+.btn--secondary {
+  color: var(--site-primary);
+  background: var(--site-primary-pale);
+  border-color: var(--site-border-strong);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  color: var(--site-primary-hover);
+  background: var(--site-secondary-soft);
+  border-color: var(--site-secondary);
+}
+
+.btn--accent {
+  color: var(--site-primary-dark);
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.btn--accent:hover:not(:disabled) {
+  color: var(--site-primary-hover);
+  background: var(--site-primary-soft);
+}
+
+.btn--ghost {
+  color: var(--site-text-on-dark);
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.40);
+  box-shadow: none;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  color: var(--site-text-on-dark);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.62);
+}
+
+.btn--danger {
+  color: var(--site-danger);
+  background: var(--site-danger-soft);
+  border-color: #E7B9B7;
+}
+
+.btn--danger:hover:not(:disabled) {
+  color: #8F2723;
+  background: #F8DAD8;
+}
+
+.btn--small {
+  min-height: 40px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.92rem;
+}
+
+.btn--icon {
+  width: 44px;
+  padding-inline: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.18rem 0.58rem;
+  color: var(--site-text-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: var(--site-surface-muted);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-pill);
+}
+
+.badge--primary {
+  color: var(--site-primary);
+  background: var(--site-primary-soft);
+  border-color: #C7D6EF;
+}
+
+.badge--secondary {
+  color: var(--site-secondary-active);
+  background: var(--site-secondary-soft);
+  border-color: #C5D5F3;
+}
+
+.badge--success {
+  color: var(--site-success);
+  background: var(--site-success-soft);
+  border-color: #B7DEC8;
+}
+
+.badge--warning {
+  color: var(--site-warning);
+  background: var(--site-warning-soft);
+  border-color: #EAD39D;
+}
+
+.badge--neutral {
+  color: var(--site-text-soft);
+  background: var(--site-surface-muted);
+}
+
+.progress {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.progress__label {
+  display: flex;
+  gap: var(--site-space-3);
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.progress__track {
+  position: relative;
+  width: 100%;
+  height: 0.72rem;
+  overflow: hidden;
+  background: #CFD9E8;
+  border-radius: var(--site-radius-pill);
+}
+
+.progress__fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--site-secondary), var(--site-accent));
+  border-radius: inherit;
+  transition: width var(--site-transition-normal);
+}
+
+.progress__value {
+  color: var(--site-text-soft);
+}
+
+.form-group {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.form-label {
+  color: var(--site-text);
+  font-weight: 800;
+}
+
+.form-control {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.65rem 0.75rem;
+  color: var(--site-text);
+  background: var(--site-surface);
+  border: 1px solid var(--site-border-strong);
+  border-radius: var(--site-radius-sm);
+  box-shadow: inset 0 1px 2px rgba(8, 31, 77, 0.05);
+  transition:
+    border-color var(--site-transition-fast),
+    box-shadow var(--site-transition-fast);
+}
+
+.form-control:hover {
+  border-color: var(--site-secondary);
+}
+
+.form-control:focus {
+  border-color: var(--site-secondary);
+  outline: 3px solid rgba(255, 191, 71, 0.46);
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px var(--site-secondary);
+}
+
+.form-control::placeholder {
+  color: #7A879C;
+}
+
+.form-help {
+  margin: 0;
+  color: var(--site-muted);
+  font-size: 0.9rem;
+}
+
+.form-error {
+  color: var(--site-danger);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.option-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.option-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  min-height: 48px;
+  padding: 0.7rem 0.8rem;
+  cursor: pointer;
+  background: var(--site-surface-soft);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-sm);
+  transition:
+    background var(--site-transition-fast),
+    border-color var(--site-transition-fast),
+    box-shadow var(--site-transition-fast);
+}
+
+.option-item:hover {
+  background: var(--site-primary-pale);
+  border-color: var(--site-secondary);
+}
+
+.option-item:has(input:checked) {
+  background: var(--site-secondary-soft);
+  border-color: var(--site-secondary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 199, 0.12);
+}
+
+.option-item input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.28rem 0 0;
+  accent-color: var(--site-primary);
+}
+
+.feedback {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  color: var(--site-info);
+  background: var(--site-info-soft);
+  border: 1px solid #C5D5F3;
+  border-radius: var(--site-radius-sm);
+}
+
+.feedback--correct {
+  color: var(--site-success);
+  background: var(--site-success-soft);
+  border-color: #B7DEC8;
+}
+
+.feedback--incorrect {
+  color: var(--site-danger);
+  background: var(--site-danger-soft);
+  border-color: #E7B9B7;
+}
+
+.feedback--partial {
+  color: var(--site-warning);
+  background: var(--site-warning-soft);
+  border-color: #EAD39D;
+}
+
+.feedback--info {
+  color: var(--site-info);
+  background: var(--site-info-soft);
+}
+
+.feedback--warning {
+  color: var(--site-warning);
+  background: var(--site-warning-soft);
+}
+
+.toast-region {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  display: grid;
+  gap: 0.6rem;
+  width: min(360px, calc(100vw - 2rem));
+  pointer-events: none;
+}
+
+.toast {
+  padding: 0.9rem 1rem;
+  color: var(--site-text-on-dark);
+  font-weight: 700;
+  background: var(--site-primary-dark);
+  border: 1px solid var(--site-border-on-dark);
+  border-radius: var(--site-radius-sm);
+  box-shadow: var(--site-shadow-lg);
+  animation: toast-in var(--site-transition-normal) both;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.7rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.module-environmental-vocabulary .overview-points {
+  display: grid;
+  gap: var(--site-space-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.module-environmental-vocabulary .overview-points li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+
+.module-environmental-vocabulary .overview-points li::before {
+  display: inline-grid;
+  flex: 0 0 1.55rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  color: var(--site-primary);
+  font-size: 0.78rem;
+  font-weight: 900;
+  content: "✓";
+  background: var(--site-primary-soft);
+  border-radius: 50%;
+}
+
+.module-environmental-vocabulary .vocab-toolbar {
+  display: grid;
+  gap: var(--site-space-3);
+  padding: var(--site-space-4);
+  background: var(--site-primary-pale);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-md);
+}
+
+.module-environmental-vocabulary .vocab-toolbar__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--site-space-3);
+  align-items: end;
+}
+
+.module-environmental-vocabulary .vocab-toolbar__search {
+  flex: 1 1 280px;
+}
+
+.module-environmental-vocabulary .vocab-count {
+  margin: 0;
+  color: var(--site-muted);
+  font-size: 0.92rem;
+}
+
+.module-environmental-vocabulary .vocab-grid {
+  display: grid;
+  gap: var(--site-space-4);
+}
+
+.module-environmental-vocabulary .vocab-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition:
+    transform var(--site-transition-normal),
+    box-shadow var(--site-transition-normal),
+    border-color var(--site-transition-normal);
+}
+
+.module-environmental-vocabulary .vocab-card:hover {
+  border-color: #B8C9E3;
+  box-shadow: var(--site-shadow-md);
+  transform: translateY(-2px);
+}
+
+.module-environmental-vocabulary .vocab-card[hidden] {
+  display: none !important;
+}
+
+.module-environmental-vocabulary .vocab-card__top {
+  display: flex;
+  gap: var(--site-space-3);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--site-space-3);
+}
+
+.module-environmental-vocabulary .vocab-card__icon {
+  display: inline-grid;
+  width: 2.3rem;
+  height: 2.3rem;
+  place-items: center;
+  color: var(--site-primary);
+  font-size: 1.15rem;
+  font-weight: 900;
+  background: var(--site-primary-soft);
+  border: 1px solid #C7D6EF;
+  border-radius: 50%;
+}
+
+.module-environmental-vocabulary .vocab-card__word {
+  margin: 0;
+  color: var(--site-primary-dark);
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.module-environmental-vocabulary .vocab-card__ipa {
+  margin: 0.3rem 0 0.5rem;
+  color: var(--site-secondary);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.module-environmental-vocabulary .vocab-card__meaning {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.3rem 0.55rem;
+  margin: 0 0 0.75rem;
+  color: var(--site-primary-dark);
+  font-weight: 800;
+  background: var(--site-accent-soft);
+  border-radius: var(--site-radius-xs);
+}
+
+.module-environmental-vocabulary .vocab-card__definition {
+  margin: 0 0 0.7rem;
+  color: var(--site-text-soft);
+}
+
+.module-environmental-vocabulary .vocab-card__example {
+  flex: 1;
+  margin: 0 0 var(--site-space-4);
+  color: var(--site-muted);
+  font-size: 0.92rem;
+}
+
+.module-environmental-vocabulary .pronunciation-button {
+  align-self: flex-start;
+}
+
+.module-environmental-vocabulary .activity-stack {
+  display: grid;
+  gap: var(--site-space-6);
+}
+
+.module-environmental-vocabulary .activity-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--site-space-4);
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: var(--site-space-4);
+  margin-bottom: var(--site-space-4);
+  border-bottom: 1px solid var(--site-border);
+}
+
+.module-environmental-vocabulary .activity-card__header h3 {
+  margin: 0.5rem 0 0.35rem;
+  color: var(--site-primary-dark);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.25;
+}
+
+.module-environmental-vocabulary .activity-card__header p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--site-text-soft);
+}
+
+.module-environmental-vocabulary .activity-score {
+  flex: 0 0 auto;
+  min-width: 118px;
+  padding: 0.55rem 0.75rem;
+  color: var(--site-primary);
+  font-size: 0.92rem;
+  font-weight: 900;
+  text-align: center;
+  background: var(--site-primary-soft);
+  border: 1px solid #C7D6EF;
+  border-radius: var(--site-radius-pill);
+}
+
+.module-environmental-vocabulary .activity-card__content {
+  display: grid;
+  gap: var(--site-space-4);
+}
+
+.module-environmental-vocabulary .activity-card__actions {
+  padding-top: var(--site-space-5);
+  margin-top: var(--site-space-5);
+  border-top: 1px solid var(--site-border);
+}
+
+.module-environmental-vocabulary .activity-card__feedback {
+  margin-top: var(--site-space-4);
+}
+
+.module-environmental-vocabulary .question-grid {
+  display: grid;
+  gap: var(--site-space-3);
+}
+
+.module-environmental-vocabulary .question {
+  min-width: 0;
+  padding: var(--site-space-4);
+  margin: 0;
+  background: var(--site-surface-soft);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-sm);
+}
+
+.module-environmental-vocabulary .question.is-correct {
+  background: var(--site-success-soft);
+  border-color: #B7DEC8;
+}
+
+.module-environmental-vocabulary .question.is-incorrect {
+  background: var(--site-danger-soft);
+  border-color: #E7B9B7;
+}
+
+.module-environmental-vocabulary .question.is-unanswered {
+  background: var(--site-warning-soft);
+  border-color: #EAD39D;
+}
+
+.module-environmental-vocabulary .question__prompt {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  color: var(--site-text);
+  font-weight: 800;
+}
+
+.module-environmental-vocabulary legend.question__prompt {
+  width: 100%;
+  padding: 0;
+}
+
+.module-environmental-vocabulary .question__number {
+  display: inline-grid;
+  flex: 0 0 1.8rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  color: var(--site-text-on-dark);
+  font-size: 0.82rem;
+  background: var(--site-primary);
+  border-radius: 50%;
+}
+
+.module-environmental-vocabulary .question-feedback {
+  min-height: 1.45rem;
+  margin-top: 0.65rem;
+  color: var(--site-text-soft);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.module-environmental-vocabulary .question.is-correct .question-feedback {
+  color: var(--site-success);
+}
+
+.module-environmental-vocabulary .question.is-incorrect .question-feedback {
+  color: var(--site-danger);
+}
+
+.module-environmental-vocabulary .question.is-unanswered .question-feedback {
+  color: var(--site-warning);
+}
+
+.module-environmental-vocabulary .matching-bank,
+.module-environmental-vocabulary .word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding: var(--site-space-4);
+  background: var(--site-primary-pale);
+  border: 1px solid #C7D6EF;
+  border-radius: var(--site-radius-md);
+}
+
+.module-environmental-vocabulary .matching-bank__item {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.45rem 0.65rem;
+  color: var(--site-text-soft);
+  background: #FFFFFF;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-sm);
+}
+
+.module-environmental-vocabulary .matching-bank__letter {
+  display: inline-grid;
+  flex: 0 0 1.55rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  color: var(--site-text-on-dark);
+  font-size: 0.8rem;
+  font-weight: 900;
+  background: var(--site-secondary);
+  border-radius: 50%;
+}
+
+.module-environmental-vocabulary .word-bank span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.28rem 0.62rem;
+  color: var(--site-primary-dark);
+  font-size: 0.92rem;
+  font-weight: 800;
+  background: #FFFFFF;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-pill);
+}
+
+.module-environmental-vocabulary .conversation-grid {
+  display: grid;
+  gap: var(--site-space-4);
+}
+
+.module-environmental-vocabulary .conversation-card {
+  padding: var(--site-space-4);
+  background: var(--site-primary-pale);
+  border: 1px solid #C7D6EF;
+  border-radius: var(--site-radius-md);
+}
+
+.module-environmental-vocabulary .conversation-card h4 {
+  margin: 0 0 var(--site-space-3);
+  color: var(--site-primary-dark);
+  font-size: 1.05rem;
+}
+
+.module-environmental-vocabulary .conversation-card > p {
+  margin: 0 0 0.7rem;
+}
+
+.module-environmental-vocabulary .conversation-line {
+  padding: 0.7rem;
+  margin-top: 0.65rem;
+  background: #FFFFFF;
+}
+
+.module-environmental-vocabulary .conversation-line p {
+  margin: 0;
+}
+
+.module-environmental-vocabulary .form-control--inline {
+  display: inline-block;
+  width: min(100%, 250px);
+  min-height: 42px;
+  margin: 0 0.35rem;
+  vertical-align: middle;
+}
+
+.module-environmental-vocabulary .cloze-passage {
+  padding: var(--site-space-5);
+  color: var(--site-text);
+  background: var(--site-surface-soft);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-md);
+}
+
+.module-environmental-vocabulary .cloze-passage p {
+  margin: 0 0 1rem;
+}
+
+.module-environmental-vocabulary .cloze-passage p:last-child {
+  margin-bottom: 0;
+}
+
+.module-environmental-vocabulary .question--inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  padding: 0.25rem;
+  margin: 0.12rem 0.2rem;
+  vertical-align: middle;
+}
+
+.module-environmental-vocabulary .form-control--cloze {
+  width: auto;
+  min-width: 195px;
+  min-height: 40px;
+  padding-block: 0.45rem;
+}
+
+.module-environmental-vocabulary .question-feedback--inline {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.module-environmental-vocabulary .summary-dashboard {
+  display: grid;
+  gap: var(--site-space-4);
+}
+
+.module-environmental-vocabulary .summary-stat {
+  display: grid;
+  gap: 0.35rem;
+  min-height: 126px;
+  padding: var(--site-space-5);
+  align-content: center;
+  text-align: center;
+  background: var(--site-primary-pale);
+  border: 1px solid #C7D6EF;
+  border-radius: var(--site-radius-md);
+}
+
+.module-environmental-vocabulary .summary-stat__value {
+  color: var(--site-primary);
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.module-environmental-vocabulary .summary-stat__label {
+  color: var(--site-text-soft);
+  font-weight: 700;
+}
+
+.module-environmental-vocabulary .answer-key-panel {
+  padding: var(--site-space-5);
+  background: var(--site-surface-soft);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-md);
+}
+
+.module-environmental-vocabulary .answer-key-panel[hidden] {
+  display: none !important;
+}
+
+.module-environmental-vocabulary .answer-key-panel h3 {
+  margin-top: 0;
+  color: var(--site-primary-dark);
+}
+
+.module-environmental-vocabulary .answer-key-grid {
+  display: grid;
+  gap: var(--site-space-3);
+}
+
+.module-environmental-vocabulary .answer-key-item {
+  padding: var(--site-space-4);
+  background: #FFFFFF;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-sm);
+}
+
+.module-environmental-vocabulary .answer-key-item h4 {
+  margin: 0 0 0.35rem;
+  color: var(--site-primary);
+}
+
+.module-environmental-vocabulary .answer-key-item p {
+  margin: 0;
+  color: var(--site-text-soft);
+}
+
+.module-environmental-vocabulary .empty-state {
+  padding: var(--site-space-5);
+  color: var(--site-muted);
+  text-align: center;
+  background: var(--site-surface-soft);
+  border: 1px dashed var(--site-border-strong);
+  border-radius: var(--site-radius-md);
+}
+
+.site-footer {
+  margin-top: var(--site-space-8);
+  padding: var(--site-space-6) var(--site-space-4);
+  color: var(--site-text-on-dark);
+  text-align: center;
+  background: linear-gradient(135deg, var(--site-primary-deep), var(--site-primary));
+  border-top: 1px solid var(--site-border-on-dark);
+}
+
+.site-footer__copyright {
+  max-width: var(--site-content-width);
+  margin: 0 auto;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.text-muted {
+  color: var(--site-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+@media (min-width: 600px) {
+  .site-header__inner {
+    grid-template-columns: minmax(220px, 1fr) minmax(250px, 1fr);
+  }
+
+  .site-header__tools {
+    grid-column: 1 / -1;
+  }
+
+  .site-hero__inner {
+    grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.8fr);
+  }
+
+  .session-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .two-column-grid,
+  .module-environmental-vocabulary .summary-dashboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .module-environmental-vocabulary .vocab-grid,
+  .module-environmental-vocabulary .question-grid,
+  .module-environmental-vocabulary .conversation-grid,
+  .module-environmental-vocabulary .answer-key-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .site-header__inner {
+    grid-template-columns: minmax(280px, 1.2fr) minmax(320px, 1fr) auto;
+  }
+
+  .site-header__tools {
+    grid-column: auto;
+    justify-content: flex-end;
+  }
+
+  .three-column-grid,
+  .module-environmental-vocabulary .vocab-grid,
+  .module-environmental-vocabulary .summary-dashboard {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .module-environmental-vocabulary .conversation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .module-environmental-vocabulary .answer-key-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .site-main {
+    padding-inline: 0;
+  }
+
+  .module-environmental-vocabulary .vocab-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  .site-header__status {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-header__tools {
+    justify-content: stretch;
+  }
+
+  .site-header__tools .btn {
+    flex: 1 1 auto;
+  }
+
+  .site-hero__art {
+    min-height: 180px;
+  }
+
+  .site-hero__art svg {
+    width: min(78vw, 280px);
+  }
+
+  .button-group {
+    align-items: stretch;
+  }
+
+  .button-group .btn {
+    flex: 1 1 100%;
+  }
+
+  .module-environmental-vocabulary .activity-card__header {
+    display: grid;
+  }
+
+  .module-environmental-vocabulary .activity-score {
+    width: 100%;
+  }
+
+  .module-environmental-vocabulary .form-control--inline,
+  .module-environmental-vocabulary .form-control--cloze {
+    width: 100%;
+    min-width: 0;
+    margin: 0.35rem 0;
+  }
+
+  .module-environmental-vocabulary .question--inline {
+    display: block;
+    width: 100%;
+    margin: 0.35rem 0;
+  }
+
+  .module-environmental-vocabulary .question-feedback--inline {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body {
+    color: #000000;
+    background: #FFFFFF;
+  }
+
+  body::before,
+  body::after,
+  .site-navigation,
+  .site-header__tools,
+  .pronunciation-button,
+  .vocab-toolbar,
+  .activity-card__actions,
+  .toast-region,
+  .site-hero__art,
+  .session-card,
+  #review-next-button,
+  #toggle-answer-key {
+    display: none !important;
+  }
+
+  .site-header,
+  .site-hero__panel,
+  .site-section,
+  .site-card,
+  .activity-card,
+  .answer-key-panel {
+    color: #000000 !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .site-header {
+    border-bottom: 2px solid #000000;
+  }
+
+  .site-brand__name,
+  .site-brand__lesson-title,
+  .site-hero__lead {
+    color: #000000 !important;
+  }
+
+  .site-hero__panel,
+  .site-section,
+  .activity-card,
+  .site-card {
+    break-inside: avoid;
+    border-color: #A0A0A0;
+  }
+
+  .module-environmental-vocabulary .answer-key-panel[hidden] {
+    display: none !important;
+  }
+
+  .site-footer {
+    color: #000000;
+    background: #FFFFFF;
+    border-top: 1px solid #000000;
+  }
+}
+
+.module-environmental-vocabulary .completion-actions { margin-top: var(--site-space-4); }
+
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#site-main">Skip to main content</a>
+
+<header class="site-header glass-panel glass-panel--blue">
+  <div class="site-header__inner">
+    <div class="site-brand">
+      <span class="site-brand__mark" aria-hidden="true">✦</span>
+      <div class="site-brand__text">
+        <span class="site-brand__name">Interactive Learning</span>
+        <span class="site-brand__lesson-title">Environmental Vocabulary Practice</span>
+      </div>
+    </div>
+
+    <div class="site-header__status">
+      <div class="status-pill">
+        <span class="status-pill__label">Overall progress</span>
+        <span class="status-pill__value" id="header-progress-value">0%</span>
+        <div class="progress__track" id="header-progress-track" role="progressbar" aria-label="Overall lesson progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress__fill" id="header-progress-fill"></div>
+        </div>
+      </div>
+      <div class="status-pill">
+        <span class="status-pill__label">Score</span>
+        <span class="status-pill__value" id="header-score-value">0 / 53</span>
+      </div>
+    </div>
+
+    <div class="site-header__tools" aria-label="Lesson tools">
+      <button class="btn btn--ghost btn--icon" type="button" data-font-action="decrease" aria-label="Decrease text size">A−</button>
+      <button class="btn btn--ghost btn--icon" type="button" data-font-action="reset" aria-label="Reset text size">A</button>
+      <button class="btn btn--ghost btn--icon" type="button" data-font-action="increase" aria-label="Increase text size">A+</button>
+      <button class="btn btn--ghost" id="reset-lesson" type="button">Reset lesson</button>
+    </div>
+  </div>
+</header>
+
+<nav class="site-navigation glass-panel" aria-label="Main lesson navigation">
+  <div class="site-navigation__inner"></div>
+</nav>
+
+<main id="site-main" class="site-main">
+  <section class="site-hero module-environmental-vocabulary" id="lesson-overview" data-nav-label="Overview">
+    <div class="site-hero__panel glass-panel glass-panel--blue">
+      <div class="site-hero__inner">
+        <div class="site-hero__content">
+          <p class="site-hero__eyebrow">Vocabulary • Collocations • Reading</p>
+          <h1>Environmental Vocabulary Practice</h1>
+          <p class="site-hero__lead">
+            Build accurate environmental vocabulary through pronunciation practice, meaning review, sentence use, conversations, and a reading cloze.
+          </p>
+
+          <div class="hero-meta" aria-label="Lesson information">
+            <span class="hero-meta__item"><span aria-hidden="true">◈</span> 19 target words</span>
+            <span class="hero-meta__item"><span aria-hidden="true">✓</span> 10 scored exercises</span>
+            <span class="hero-meta__item"><span aria-hidden="true">★</span> 53 total points</span>
+          </div>
+
+          <div class="button-group">
+            <button class="btn btn--accent" type="button" data-scroll-target="vocabulary">Start lesson</button>
+            <button class="btn btn--ghost" type="button" data-scroll-target="lesson-summary">View dashboard</button>
+          </div>
+
+          <div class="session-card">
+            <h2>Session details</h2>
+            <p>Optional. These details stay in this browser tab and are not saved.</p>
+            <div class="session-grid">
+              <div class="form-group">
+                <label class="form-label" for="learner-name">Name</label>
+                <input class="form-control" id="learner-name" type="text" autocomplete="name" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="learner-class">Class</label>
+                <input class="form-control" id="learner-class" type="text" autocomplete="off" placeholder="Enter your class">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lesson-date">Date</label>
+                <input class="form-control" id="lesson-date" type="date">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-hero__art" role="img" aria-label="Illustration of the Earth, leaves, water, and clean energy">
+          <svg viewBox="0 0 420 360" aria-hidden="true">
+            <defs>
+              <linearGradient id="earthBlue" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#9CC3FF"/>
+                <stop offset="1" stop-color="#FFFFFF"/>
+              </linearGradient>
+              <linearGradient id="leafWhite" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FFFFFF"/>
+                <stop offset="1" stop-color="#CFE0FF"/>
+              </linearGradient>
+            </defs>
+            <circle cx="210" cy="180" r="130" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.22)" stroke-width="2"/>
+            <circle cx="210" cy="180" r="94" fill="url(#earthBlue)" stroke="#FFFFFF" stroke-width="5"/>
+            <path d="M151 135c20-24 39-30 61-23 8 3 12 12 5 19-7 7-17 5-24 10-11 8-6 22-19 26-14 4-30-13-23-32Z" fill="#123B8F" opacity=".9"/>
+            <path d="M248 115c21 3 44 24 48 44 3 15-13 21-23 12-8-7-19-5-23-15-5-12-16-17-14-28 2-8 6-14 12-13Z" fill="#2563C7" opacity=".88"/>
+            <path d="M217 201c13-12 29-12 38-2 10 10 5 22 15 29 8 6 4 19-7 22-20 6-45-14-54-29-5-8 1-15 8-20Z" fill="#123B8F" opacity=".92"/>
+            <path d="M137 218c11-15 31-17 42-5 8 9 5 22-4 30-12 11-29 14-40 4-8-8-6-19 2-29Z" fill="#2563C7" opacity=".82"/>
+            <path d="M78 112c31-45 59-54 82-56-8 38-31 64-70 75-12 3-20-8-12-19Z" fill="url(#leafWhite)" opacity=".94"/>
+            <path d="M345 227c-14 49-42 69-77 76 5-42 27-72 65-91 11-5 17 4 12 15Z" fill="url(#leafWhite)" opacity=".94"/>
+            <path d="M92 122c25-18 45-35 66-63" fill="none" stroke="#123B8F" stroke-width="4" stroke-linecap="round"/>
+            <path d="M331 222c-20 20-39 44-59 76" fill="none" stroke="#123B8F" stroke-width="4" stroke-linecap="round"/>
+            <g transform="translate(326 70)">
+              <circle cx="0" cy="0" r="25" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)"/>
+              <path d="M0-14v28M-14 0h28M-10-10l20 20M10-10l-20 20" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <path d="M83 279c31-14 61-16 90-5M77 294c34-10 65-8 95 2" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".75"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="module-root" class="module-root">
+    <section id="vocabulary" class="site-section module-environmental-vocabulary" data-module-id="environmental-vocabulary" data-section-id="vocabulary" data-nav-label="Vocabulary">
+      <header class="section-header">
+        <span class="section-eyebrow">Target language</span>
+        <h2 class="section-title">Vocabulary Bank</h2>
+        <p class="section-description">
+          Review each word, British English pronunciation, Vietnamese meaning, definition, and example. Use the listen buttons to hear the words.
+        </p>
+      </header>
+
+      <div class="section-body">
+        <div class="vocab-toolbar">
+          <div class="vocab-toolbar__controls">
+            <div class="form-group vocab-toolbar__search">
+              <label class="form-label" for="vocab-search">Search vocabulary</label>
+              <input class="form-control" id="vocab-search" type="search" autocomplete="off" placeholder="Search a word, meaning, or category">
+            </div>
+            <button class="btn btn--secondary" type="button" data-speak="biodegradable. carbon footprint. carbon neutral. climate resilience. contamination. depletion. eco-conscious. ecosystem. environmental degradation. environmental impact. environmentalist. greenhouse gas. landfill. pollutant. reservoir. sustainability. toxic. urbanization. wildlife" aria-label="Listen to all target vocabulary">Listen to all</button>
+            <button class="btn btn--secondary" id="stop-speech" type="button">Stop</button>
+          </div>
+          <p class="vocab-count" id="vocab-count">19 of 19 words shown</p>
+        </div>
+
+        <div class="vocab-grid">
+          
+        <article class="site-card vocab-card" data-vocab-word="biodegradable" data-vocab-search="biodegradable có thể phân hủy sinh học able to break down naturally without harming the environment. waste &amp; materials">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">♻</span>
+            <span class="badge badge--secondary">Waste &amp; materials</span>
+          </div>
+          <h3 class="vocab-card__word">biodegradable</h3>
+          <p class="vocab-card__ipa">/ˌbaɪ.əʊ.dɪˈɡreɪ.də.bəl/</p>
+          <p class="vocab-card__meaning"><span lang="vi">có thể phân hủy sinh học</span></p>
+          <p class="vocab-card__definition">Able to break down naturally without harming the environment.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> The café uses biodegradable food containers.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="biodegradable" aria-label="Listen to the pronunciation of biodegradable">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="carbon footprint" data-vocab-search="carbon footprint dấu chân carbon; lượng khí thải carbon the total carbon emissions caused by a person, product, or activity. climate &amp; carbon">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">◉</span>
+            <span class="badge badge--secondary">Climate &amp; carbon</span>
+          </div>
+          <h3 class="vocab-card__word">carbon footprint</h3>
+          <p class="vocab-card__ipa">/ˌkɑː.bən ˈfʊt.prɪnt/</p>
+          <p class="vocab-card__meaning"><span lang="vi">dấu chân carbon; lượng khí thải carbon</span></p>
+          <p class="vocab-card__definition">The total carbon emissions caused by a person, product, or activity.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Taking the bus can reduce your carbon footprint.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="carbon footprint" aria-label="Listen to the pronunciation of carbon footprint">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="carbon neutral" data-vocab-search="carbon neutral trung hòa carbon producing no net carbon emissions overall. climate &amp; carbon">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">◎</span>
+            <span class="badge badge--secondary">Climate &amp; carbon</span>
+          </div>
+          <h3 class="vocab-card__word">carbon neutral</h3>
+          <p class="vocab-card__ipa">/ˌkɑː.bən ˈnjuː.trəl/</p>
+          <p class="vocab-card__meaning"><span lang="vi">trung hòa carbon</span></p>
+          <p class="vocab-card__definition">Producing no net carbon emissions overall.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> The company aims to become carbon neutral by 2035.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="carbon neutral" aria-label="Listen to the pronunciation of carbon neutral">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="climate resilience" data-vocab-search="climate resilience khả năng chống chịu với biến đổi khí hậu the ability to prepare for and recover from climate-related problems. climate &amp; carbon">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">⌁</span>
+            <span class="badge badge--secondary">Climate &amp; carbon</span>
+          </div>
+          <h3 class="vocab-card__word">climate resilience</h3>
+          <p class="vocab-card__ipa">/ˈklaɪ.mət rɪˈzɪl.i.əns/</p>
+          <p class="vocab-card__meaning"><span lang="vi">khả năng chống chịu với biến đổi khí hậu</span></p>
+          <p class="vocab-card__definition">The ability to prepare for and recover from climate-related problems.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Flood barriers can improve a city&#x27;s climate resilience.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="climate resilience" aria-label="Listen to the pronunciation of climate resilience">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="contamination" data-vocab-search="contamination sự ô nhiễm; sự nhiễm bẩn the process of making something dirty, polluted, or unsafe. pollution">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">⚠</span>
+            <span class="badge badge--secondary">Pollution</span>
+          </div>
+          <h3 class="vocab-card__word">contamination</h3>
+          <p class="vocab-card__ipa">/kənˌtæm.ɪˈneɪ.ʃən/</p>
+          <p class="vocab-card__meaning"><span lang="vi">sự ô nhiễm; sự nhiễm bẩn</span></p>
+          <p class="vocab-card__definition">The process of making something dirty, polluted, or unsafe.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Chemical contamination made the lake unsafe.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="contamination" aria-label="Listen to the pronunciation of contamination">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="depletion" data-vocab-search="depletion sự cạn kiệt the reduction or exhaustion of a resource. resources">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">▽</span>
+            <span class="badge badge--secondary">Resources</span>
+          </div>
+          <h3 class="vocab-card__word">depletion</h3>
+          <p class="vocab-card__ipa">/dɪˈpliː.ʃən/</p>
+          <p class="vocab-card__meaning"><span lang="vi">sự cạn kiệt</span></p>
+          <p class="vocab-card__definition">The reduction or exhaustion of a resource.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Overfishing can lead to resource depletion.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="depletion" aria-label="Listen to the pronunciation of depletion">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="eco-conscious" data-vocab-search="eco-conscious có ý thức bảo vệ môi trường aware of environmental problems and making greener choices. responsible choices">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">✓</span>
+            <span class="badge badge--secondary">Responsible choices</span>
+          </div>
+          <h3 class="vocab-card__word">eco-conscious</h3>
+          <p class="vocab-card__ipa">/ˌiː.kəʊˈkɒn.ʃəs/</p>
+          <p class="vocab-card__meaning"><span lang="vi">có ý thức bảo vệ môi trường</span></p>
+          <p class="vocab-card__definition">Aware of environmental problems and making greener choices.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Eco-conscious shoppers avoid unnecessary plastic.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="eco-conscious" aria-label="Listen to the pronunciation of eco-conscious">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="ecosystem" data-vocab-search="ecosystem hệ sinh thái a community of living things and their natural environment. nature">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">◌</span>
+            <span class="badge badge--secondary">Nature</span>
+          </div>
+          <h3 class="vocab-card__word">ecosystem</h3>
+          <p class="vocab-card__ipa">/ˈiː.kəʊˌsɪs.təm/</p>
+          <p class="vocab-card__meaning"><span lang="vi">hệ sinh thái</span></p>
+          <p class="vocab-card__definition">A community of living things and their natural environment.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Oil spills can damage a marine ecosystem.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="ecosystem" aria-label="Listen to the pronunciation of ecosystem">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="environmental degradation" data-vocab-search="environmental degradation sự suy thoái môi trường the worsening or destruction of the natural environment. environmental change">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">↓</span>
+            <span class="badge badge--secondary">Environmental change</span>
+          </div>
+          <h3 class="vocab-card__word">environmental degradation</h3>
+          <p class="vocab-card__ipa">/ɪnˌvaɪ.rənˈmen.təl ˌdeɡ.rəˈdeɪ.ʃən/</p>
+          <p class="vocab-card__meaning"><span lang="vi">sự suy thoái môi trường</span></p>
+          <p class="vocab-card__definition">The worsening or destruction of the natural environment.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Deforestation causes environmental degradation.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="environmental degradation" aria-label="Listen to the pronunciation of environmental degradation">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="environmental impact" data-vocab-search="environmental impact tác động môi trường the effect that an action or activity has on the environment. environmental change">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">↗</span>
+            <span class="badge badge--secondary">Environmental change</span>
+          </div>
+          <h3 class="vocab-card__word">environmental impact</h3>
+          <p class="vocab-card__ipa">/ɪnˌvaɪ.rənˈmen.təl ˈɪm.pækt/</p>
+          <p class="vocab-card__meaning"><span lang="vi">tác động môi trường</span></p>
+          <p class="vocab-card__definition">The effect that an action or activity has on the environment.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Factories should study their environmental impact.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="environmental impact" aria-label="Listen to the pronunciation of environmental impact">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="environmentalist" data-vocab-search="environmentalist nhà hoạt động môi trường a person who works to protect the natural environment. people">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">♙</span>
+            <span class="badge badge--secondary">People</span>
+          </div>
+          <h3 class="vocab-card__word">environmentalist</h3>
+          <p class="vocab-card__ipa">/ɪnˌvaɪ.rənˈmen.təl.ɪst/</p>
+          <p class="vocab-card__meaning"><span lang="vi">nhà hoạt động môi trường</span></p>
+          <p class="vocab-card__definition">A person who works to protect the natural environment.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> The environmentalist campaigns to protect forests.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="environmentalist" aria-label="Listen to the pronunciation of environmentalist">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="greenhouse gas" data-vocab-search="greenhouse gas khí nhà kính a gas that traps heat in the atmosphere. climate &amp; carbon">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">☁</span>
+            <span class="badge badge--secondary">Climate &amp; carbon</span>
+          </div>
+          <h3 class="vocab-card__word">greenhouse gas</h3>
+          <p class="vocab-card__ipa">/ˈɡriːn.haʊs ɡæs/</p>
+          <p class="vocab-card__meaning"><span lang="vi">khí nhà kính</span></p>
+          <p class="vocab-card__definition">A gas that traps heat in the atmosphere.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Carbon dioxide is a major greenhouse gas.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="greenhouse gas" aria-label="Listen to the pronunciation of greenhouse gas">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="landfill" data-vocab-search="landfill bãi chôn lấp rác a place where waste is buried in the ground. waste &amp; materials">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">▤</span>
+            <span class="badge badge--secondary">Waste &amp; materials</span>
+          </div>
+          <h3 class="vocab-card__word">landfill</h3>
+          <p class="vocab-card__ipa">/ˈlænd.fɪl/</p>
+          <p class="vocab-card__meaning"><span lang="vi">bãi chôn lấp rác</span></p>
+          <p class="vocab-card__definition">A place where waste is buried in the ground.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Plastic may remain in a landfill for hundreds of years.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="landfill" aria-label="Listen to the pronunciation of landfill">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="pollutant" data-vocab-search="pollutant chất gây ô nhiễm a substance that pollutes air, water, or soil. pollution">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">✧</span>
+            <span class="badge badge--secondary">Pollution</span>
+          </div>
+          <h3 class="vocab-card__word">pollutant</h3>
+          <p class="vocab-card__ipa">/pəˈluː.tənt/</p>
+          <p class="vocab-card__meaning"><span lang="vi">chất gây ô nhiễm</span></p>
+          <p class="vocab-card__definition">A substance that pollutes air, water, or soil.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> The authorities must identify the main pollutant.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="pollutant" aria-label="Listen to the pronunciation of pollutant">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="reservoir" data-vocab-search="reservoir hồ chứa nước a natural or artificial lake used to store water. resources">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">≈</span>
+            <span class="badge badge--secondary">Resources</span>
+          </div>
+          <h3 class="vocab-card__word">reservoir</h3>
+          <p class="vocab-card__ipa">/ˈrez.ə.vwɑːr/</p>
+          <p class="vocab-card__meaning"><span lang="vi">hồ chứa nước</span></p>
+          <p class="vocab-card__definition">A natural or artificial lake used to store water.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> The city stores drinking water in a reservoir.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="reservoir" aria-label="Listen to the pronunciation of reservoir">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="sustainability" data-vocab-search="sustainability tính bền vững the ability to meet present needs without harming future generations. responsible choices">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">∞</span>
+            <span class="badge badge--secondary">Responsible choices</span>
+          </div>
+          <h3 class="vocab-card__word">sustainability</h3>
+          <p class="vocab-card__ipa">/səˌsteɪ.nəˈbɪl.ə.ti/</p>
+          <p class="vocab-card__meaning"><span lang="vi">tính bền vững</span></p>
+          <p class="vocab-card__definition">The ability to meet present needs without harming future generations.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Renewable energy supports long-term sustainability.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="sustainability" aria-label="Listen to the pronunciation of sustainability">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="toxic" data-vocab-search="toxic độc hại poisonous or harmful to people, animals, or the environment. pollution">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">!</span>
+            <span class="badge badge--secondary">Pollution</span>
+          </div>
+          <h3 class="vocab-card__word">toxic</h3>
+          <p class="vocab-card__ipa">/ˈtɒk.sɪk/</p>
+          <p class="vocab-card__meaning"><span lang="vi">độc hại</span></p>
+          <p class="vocab-card__definition">Poisonous or harmful to people, animals, or the environment.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> The factory released toxic chemicals into the river.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="toxic" aria-label="Listen to the pronunciation of toxic">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="urbanization" data-vocab-search="urbanization đô thị hóa the growth of cities and the movement of people into urban areas. environmental change">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">▥</span>
+            <span class="badge badge--secondary">Environmental change</span>
+          </div>
+          <h3 class="vocab-card__word">urbanization</h3>
+          <p class="vocab-card__ipa">/ˌɜː.bən.aɪˈzeɪ.ʃən/</p>
+          <p class="vocab-card__meaning"><span lang="vi">đô thị hóa</span></p>
+          <p class="vocab-card__definition">The growth of cities and the movement of people into urban areas.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> Rapid urbanization can reduce green space.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="urbanization" aria-label="Listen to the pronunciation of urbanization">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+
+        <article class="site-card vocab-card" data-vocab-word="wildlife" data-vocab-search="wildlife động vật hoang dã animals and plants living naturally in an area. nature">
+          <div class="vocab-card__top">
+            <span class="vocab-card__icon" aria-hidden="true">◇</span>
+            <span class="badge badge--secondary">Nature</span>
+          </div>
+          <h3 class="vocab-card__word">wildlife</h3>
+          <p class="vocab-card__ipa">/ˈwaɪld.laɪf/</p>
+          <p class="vocab-card__meaning"><span lang="vi">động vật hoang dã</span></p>
+          <p class="vocab-card__definition">Animals and plants living naturally in an area.</p>
+          <p class="vocab-card__example"><strong>Example:</strong> The wetland provides a home for local wildlife.</p>
+          <button class="btn btn--secondary btn--small pronunciation-button" type="button" data-speak="wildlife" aria-label="Listen to the pronunciation of wildlife">
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
+        </article>
+        </div>
+        <div class="empty-state" id="vocab-empty-state" hidden>No vocabulary items match your search.</div>
+
+        <div class="instruction-card site-card--highlight">
+          <h3>Learning goal</h3>
+          <ul class="overview-points">
+            <li>Recognise the meaning and pronunciation of all 19 target words.</li>
+            <li>Use common environmental collocations accurately.</li>
+            <li>Apply the vocabulary in sentences, conversations, and a short reading.</li>
+          </ul>
+          <div class="button-group completion-actions">
+            <button class="btn btn--primary" id="mark-vocab-complete" type="button">Mark complete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="practice-foundations" class="site-section module-environmental-vocabulary" data-module-id="environmental-vocabulary" data-section-id="practice-foundations" data-nav-label="Practice 1–3">
+      <header class="section-header">
+        <span class="section-eyebrow">Foundation practice</span>
+        <h2 class="section-title">Meaning and Sentence Completion</h2>
+        <p class="section-description">Match core meanings, choose accurate vocabulary, and complete sentences with words from context.</p>
+      </header>
+      <div class="section-body activity-stack">
+        
+    <article class="activity-card" data-activity-id="exercise-1" data-activity-type="matching" data-question-count="5">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 1: Match the Words with Their Meanings</h3>
+          <p>Match each word with the correct letter from the meaning bank.</p>
+        </div>
+        <div class="activity-score" id="exercise-1-score" aria-live="polite">Score: 0 / 5</div>
+      </header>
+      <div class="activity-card__content">
+        <div class="matching-bank" aria-label="Meaning bank"><div class="matching-bank__item"><span class="matching-bank__letter">A</span><span>the variety of animals living naturally in an area</span></div><div class="matching-bank__item"><span class="matching-bank__letter">B</span><span>able to break down naturally without harming the environment</span></div><div class="matching-bank__item"><span class="matching-bank__letter">C</span><span>the total amount of carbon emissions caused by a person or activity</span></div><div class="matching-bank__item"><span class="matching-bank__letter">D</span><span>the process of making something dirty or unsafe</span></div><div class="matching-bank__item"><span class="matching-bank__letter">E</span><span>a natural or artificial lake used to store water</span></div></div><div class="question-grid">
+    <div class="question" data-question-id="ex1q1">
+      <label class="question__prompt" for="ex1q1"><span class="question__number">1</span>biodegradable</label>
+      <select class="form-control question-control" id="ex1q1" name="ex1q1">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex1q1-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex1q2">
+      <label class="question__prompt" for="ex1q2"><span class="question__number">2</span>carbon footprint</label>
+      <select class="form-control question-control" id="ex1q2" name="ex1q2">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex1q2-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex1q3">
+      <label class="question__prompt" for="ex1q3"><span class="question__number">3</span>contamination</label>
+      <select class="form-control question-control" id="ex1q3" name="ex1q3">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex1q3-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex1q4">
+      <label class="question__prompt" for="ex1q4"><span class="question__number">4</span>reservoir</label>
+      <select class="form-control question-control" id="ex1q4" name="ex1q4">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex1q4-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex1q5">
+      <label class="question__prompt" for="ex1q5"><span class="question__number">5</span>wildlife</label>
+      <select class="form-control question-control" id="ex1q5" name="ex1q5">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex1q5-feedback" aria-live="polite"></div>
+    </div></div>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-1">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-1">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-1-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+        
+    <article class="activity-card" data-activity-id="exercise-2" data-activity-type="multiple-choice" data-question-count="5">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 2: Multiple Choice</h3>
+          <p>Choose the best answer for each sentence.</p>
+        </div>
+        <div class="activity-score" id="exercise-2-score" aria-live="polite">Score: 0 / 5</div>
+      </header>
+      <div class="activity-card__content">
+        
+    <fieldset class="question" data-question-id="ex2q1">
+      <legend class="question__prompt"><span class="question__number">1</span>A company that produces no net carbon emissions is described as ________.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex2q1-1">
+            <input type="radio" id="ex2q1-1" name="ex2q1" value="A">
+            <span><strong>A.</strong> toxic</span>
+          </label>
+          <label class="option-item" for="ex2q1-2">
+            <input type="radio" id="ex2q1-2" name="ex2q1" value="B">
+            <span><strong>B.</strong> carbon neutral</span>
+          </label>
+          <label class="option-item" for="ex2q1-3">
+            <input type="radio" id="ex2q1-3" name="ex2q1" value="C">
+            <span><strong>C.</strong> biodegradable</span>
+          </label>
+          <label class="option-item" for="ex2q1-4">
+            <input type="radio" id="ex2q1-4" name="ex2q1" value="D">
+            <span><strong>D.</strong> polluted</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex2q1-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex2q2">
+      <legend class="question__prompt"><span class="question__number">2</span>Plastic bags often remain in a ________ for hundreds of years.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex2q2-1">
+            <input type="radio" id="ex2q2-1" name="ex2q2" value="A">
+            <span><strong>A.</strong> reservoir</span>
+          </label>
+          <label class="option-item" for="ex2q2-2">
+            <input type="radio" id="ex2q2-2" name="ex2q2" value="B">
+            <span><strong>B.</strong> ecosystem</span>
+          </label>
+          <label class="option-item" for="ex2q2-3">
+            <input type="radio" id="ex2q2-3" name="ex2q2" value="C">
+            <span><strong>C.</strong> landfill</span>
+          </label>
+          <label class="option-item" for="ex2q2-4">
+            <input type="radio" id="ex2q2-4" name="ex2q2" value="D">
+            <span><strong>D.</strong> greenhouse</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex2q2-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex2q3">
+      <legend class="question__prompt"><span class="question__number">3</span>Carbon dioxide is a major ________ that contributes to global warming.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex2q3-1">
+            <input type="radio" id="ex2q3-1" name="ex2q3" value="A">
+            <span><strong>A.</strong> greenhouse gas</span>
+          </label>
+          <label class="option-item" for="ex2q3-2">
+            <input type="radio" id="ex2q3-2" name="ex2q3" value="B">
+            <span><strong>B.</strong> environmentalist</span>
+          </label>
+          <label class="option-item" for="ex2q3-3">
+            <input type="radio" id="ex2q3-3" name="ex2q3" value="C">
+            <span><strong>C.</strong> ecosystem</span>
+          </label>
+          <label class="option-item" for="ex2q3-4">
+            <input type="radio" id="ex2q3-4" name="ex2q3" value="D">
+            <span><strong>D.</strong> reservoir</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex2q3-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex2q4">
+      <legend class="question__prompt"><span class="question__number">4</span>Someone who actively protects nature is called an ________.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex2q4-1">
+            <input type="radio" id="ex2q4-1" name="ex2q4" value="A">
+            <span><strong>A.</strong> urbanization</span>
+          </label>
+          <label class="option-item" for="ex2q4-2">
+            <input type="radio" id="ex2q4-2" name="ex2q4" value="B">
+            <span><strong>B.</strong> environmentalist</span>
+          </label>
+          <label class="option-item" for="ex2q4-3">
+            <input type="radio" id="ex2q4-3" name="ex2q4" value="C">
+            <span><strong>C.</strong> contamination</span>
+          </label>
+          <label class="option-item" for="ex2q4-4">
+            <input type="radio" id="ex2q4-4" name="ex2q4" value="D">
+            <span><strong>D.</strong> pollutant</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex2q4-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex2q5">
+      <legend class="question__prompt"><span class="question__number">5</span>A chemical that damages air, water, or soil is a ________.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex2q5-1">
+            <input type="radio" id="ex2q5-1" name="ex2q5" value="A">
+            <span><strong>A.</strong> resource</span>
+          </label>
+          <label class="option-item" for="ex2q5-2">
+            <input type="radio" id="ex2q5-2" name="ex2q5" value="B">
+            <span><strong>B.</strong> pollutant</span>
+          </label>
+          <label class="option-item" for="ex2q5-3">
+            <input type="radio" id="ex2q5-3" name="ex2q5" value="C">
+            <span><strong>C.</strong> habitat</span>
+          </label>
+          <label class="option-item" for="ex2q5-4">
+            <input type="radio" id="ex2q5-4" name="ex2q5" value="D">
+            <span><strong>D.</strong> reservoir</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex2q5-feedback" aria-live="polite"></div>
+    </fieldset>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-2">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-2">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-2-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+        
+    <article class="activity-card" data-activity-id="exercise-3" data-activity-type="text-completion" data-question-count="5">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 3: Complete the Sentences</h3>
+          <p>Use each word from the box once.</p>
+        </div>
+        <div class="activity-score" id="exercise-3-score" aria-live="polite">Score: 0 / 5</div>
+      </header>
+      <div class="activity-card__content">
+        <div class="word-bank" aria-label="Word bank"><span>eco-conscious</span><span>sustainability</span><span>toxic</span><span>ecosystem</span><span>depletion</span></div>
+    <div class="question" data-question-id="ex3q1">
+      <label class="question__prompt" for="ex3q1"><span class="question__number">1</span>Many young consumers are becoming more ________ and avoiding single-use plastic.</label>
+      <input class="form-control question-control" type="text" id="ex3q1" name="ex3q1" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex3q1-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex3q2">
+      <label class="question__prompt" for="ex3q2"><span class="question__number">2</span>Oil spills can seriously damage the marine ________.</label>
+      <input class="form-control question-control" type="text" id="ex3q2" name="ex3q2" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex3q2-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex3q3">
+      <label class="question__prompt" for="ex3q3"><span class="question__number">3</span>The factory was fined for releasing ________ chemicals into the river.</label>
+      <input class="form-control question-control" type="text" id="ex3q3" name="ex3q3" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex3q3-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex3q4">
+      <label class="question__prompt" for="ex3q4"><span class="question__number">4</span>Overfishing may lead to the ________ of fish populations.</label>
+      <input class="form-control question-control" type="text" id="ex3q4" name="ex3q4" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex3q4-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex3q5">
+      <label class="question__prompt" for="ex3q5"><span class="question__number">5</span>Renewable energy is essential for long-term environmental ________.</label>
+      <input class="form-control question-control" type="text" id="ex3q5" name="ex3q5" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex3q5-feedback" aria-live="polite"></div>
+    </div>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-3">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-3">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-3-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+      </div>
+    </section>
+
+    <section id="practice-context" class="site-section module-environmental-vocabulary" data-module-id="environmental-vocabulary" data-section-id="practice-context" data-nav-label="Practice 4–6">
+      <header class="section-header">
+        <span class="section-eyebrow">Context practice</span>
+        <h2 class="section-title">Collocations, Choices, and Conversations</h2>
+        <p class="section-description">Build natural word combinations and use the target vocabulary in short environmental situations.</p>
+      </header>
+      <div class="section-body activity-stack">
+        
+    <article class="activity-card" data-activity-id="exercise-4" data-activity-type="matching" data-question-count="5">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 4: Match the Collocations</h3>
+          <p>Match each beginning with the correct ending.</p>
+        </div>
+        <div class="activity-score" id="exercise-4-score" aria-live="polite">Score: 0 / 5</div>
+      </header>
+      <div class="activity-card__content">
+        <div class="matching-bank" aria-label="Collocation endings"><div class="matching-bank__item"><span class="matching-bank__letter">A</span><span>resilience</span></div><div class="matching-bank__item"><span class="matching-bank__letter">B</span><span>gas</span></div><div class="matching-bank__item"><span class="matching-bank__letter">C</span><span>impact</span></div><div class="matching-bank__item"><span class="matching-bank__letter">D</span><span>degradation</span></div><div class="matching-bank__item"><span class="matching-bank__letter">E</span><span>depletion</span></div></div><div class="question-grid">
+    <div class="question" data-question-id="ex4q1">
+      <label class="question__prompt" for="ex4q1"><span class="question__number">1</span>environmental</label>
+      <select class="form-control question-control" id="ex4q1" name="ex4q1">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex4q1-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex4q2">
+      <label class="question__prompt" for="ex4q2"><span class="question__number">2</span>climate</label>
+      <select class="form-control question-control" id="ex4q2" name="ex4q2">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex4q2-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex4q3">
+      <label class="question__prompt" for="ex4q3"><span class="question__number">3</span>greenhouse</label>
+      <select class="form-control question-control" id="ex4q3" name="ex4q3">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex4q3-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex4q4">
+      <label class="question__prompt" for="ex4q4"><span class="question__number">4</span>resource</label>
+      <select class="form-control question-control" id="ex4q4" name="ex4q4">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex4q4-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex4q5">
+      <label class="question__prompt" for="ex4q5"><span class="question__number">5</span>environmental</label>
+      <select class="form-control question-control" id="ex4q5" name="ex4q5">
+        <option value="">Choose…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option>
+      </select>
+      <div class="question-feedback" id="ex4q5-feedback" aria-live="polite"></div>
+    </div></div>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-4">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-4">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-4-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+        
+    <article class="activity-card" data-activity-id="exercise-5" data-activity-type="multiple-choice" data-question-count="5">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 5: Choose the Correct Word</h3>
+          <p>Choose the word or phrase that best completes each sentence.</p>
+        </div>
+        <div class="activity-score" id="exercise-5-score" aria-live="polite">Score: 0 / 5</div>
+      </header>
+      <div class="activity-card__content">
+        
+    <fieldset class="question" data-question-id="ex5q1">
+      <legend class="question__prompt"><span class="question__number">1</span>Rapid ________ has caused many green areas to disappear.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex5q1-1">
+            <input type="radio" id="ex5q1-1" name="ex5q1" value="A">
+            <span><strong>A.</strong> urbanization</span>
+          </label>
+          <label class="option-item" for="ex5q1-2">
+            <input type="radio" id="ex5q1-2" name="ex5q1" value="B">
+            <span><strong>B.</strong> contamination</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex5q1-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex5q2">
+      <legend class="question__prompt"><span class="question__number">2</span>The new packaging is ________ , so it breaks down naturally.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex5q2-1">
+            <input type="radio" id="ex5q2-1" name="ex5q2" value="A">
+            <span><strong>A.</strong> toxic</span>
+          </label>
+          <label class="option-item" for="ex5q2-2">
+            <input type="radio" id="ex5q2-2" name="ex5q2" value="B">
+            <span><strong>B.</strong> biodegradable</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex5q2-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex5q3">
+      <legend class="question__prompt"><span class="question__number">3</span>The city is improving its ________ by building stronger flood barriers.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex5q3-1">
+            <input type="radio" id="ex5q3-1" name="ex5q3" value="A">
+            <span><strong>A.</strong> climate resilience</span>
+          </label>
+          <label class="option-item" for="ex5q3-2">
+            <input type="radio" id="ex5q3-2" name="ex5q3" value="B">
+            <span><strong>B.</strong> carbon footprint</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex5q3-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex5q4">
+      <legend class="question__prompt"><span class="question__number">4</span>Factories should study the ________ of their activities.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex5q4-1">
+            <input type="radio" id="ex5q4-1" name="ex5q4" value="A">
+            <span><strong>A.</strong> environmental impact</span>
+          </label>
+          <label class="option-item" for="ex5q4-2">
+            <input type="radio" id="ex5q4-2" name="ex5q4" value="B">
+            <span><strong>B.</strong> environmentalist</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex5q4-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex5q5">
+      <legend class="question__prompt"><span class="question__number">5</span>The polluted river has caused serious ________ in the area.</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex5q5-1">
+            <input type="radio" id="ex5q5-1" name="ex5q5" value="A">
+            <span><strong>A.</strong> environmental degradation</span>
+          </label>
+          <label class="option-item" for="ex5q5-2">
+            <input type="radio" id="ex5q5-2" name="ex5q5" value="B">
+            <span><strong>B.</strong> carbon neutrality</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex5q5-feedback" aria-live="polite"></div>
+    </fieldset>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-5">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-5">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-5-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+        
+    <article class="activity-card" data-activity-id="exercise-6" data-activity-type="text-completion" data-question-count="6">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 6: Complete the Conversations</h3>
+          <p>Use suitable words from the target vocabulary list.</p>
+        </div>
+        <div class="activity-score" id="exercise-6-score" aria-live="polite">Score: 0 / 6</div>
+      </header>
+      <div class="activity-card__content">
+        
+<div class="conversation-grid">
+  <section class="conversation-card" aria-labelledby="conv1-title">
+    <h4 id="conv1-title">Conversation 1: Everyday Choices</h4>
+    <p><strong>Speaker 1:</strong> Why are you carrying a reusable bottle?</p>
+    
+    <div class="question conversation-line" data-question-id="ex6q1">
+      <label class="visually-hidden" for="ex6q1">Complete the first blank in Conversation 1</label>
+      <p><strong>Speaker 2:</strong> I am trying to reduce my <input class="form-control form-control--inline question-control" type="text" id="ex6q1" name="ex6q1" autocomplete="off" placeholder="type a word or phrase">.</p>
+      <div class="question-feedback" id="ex6q1-feedback" aria-live="polite"></div>
+    </div>
+    
+    <div class="question conversation-line" data-question-id="ex6q2">
+      <label class="visually-hidden" for="ex6q2">Complete the second blank in Conversation 1</label>
+      <p><strong>Speaker 1:</strong> That is a very <input class="form-control form-control--inline question-control" type="text" id="ex6q2" name="ex6q2" autocomplete="off" placeholder="type a word or phrase"> choice.</p>
+      <div class="question-feedback" id="ex6q2-feedback" aria-live="polite"></div>
+    </div>
+  </section>
+  <section class="conversation-card" aria-labelledby="conv2-title">
+    <h4 id="conv2-title">Conversation 2: Protecting Habitats</h4>
+    <p><strong>Speaker 1:</strong> Why are there fewer birds in this area?</p>
+    
+    <div class="question conversation-line" data-question-id="ex6q3">
+      <label class="visually-hidden" for="ex6q3">Complete the first blank in Conversation 2</label>
+      <p><strong>Speaker 2:</strong> Rapid <input class="form-control form-control--inline question-control" type="text" id="ex6q3" name="ex6q3" autocomplete="off" placeholder="type a word or phrase"> has destroyed much of their habitat.</p>
+      <div class="question-feedback" id="ex6q3-feedback" aria-live="polite"></div>
+    </div>
+    
+    <div class="question conversation-line" data-question-id="ex6q4">
+      <label class="visually-hidden" for="ex6q4">Complete the second blank in Conversation 2</label>
+      <p><strong>Speaker 1:</strong> We need to do more to protect local <input class="form-control form-control--inline question-control" type="text" id="ex6q4" name="ex6q4" autocomplete="off" placeholder="type a word or phrase">.</p>
+      <div class="question-feedback" id="ex6q4-feedback" aria-live="polite"></div>
+    </div>
+  </section>
+  <section class="conversation-card" aria-labelledby="conv3-title">
+    <h4 id="conv3-title">Conversation 3: Unsafe Water</h4>
+    <p><strong>Speaker 1:</strong> Is the water in the lake safe to drink?</p>
+    
+    <div class="question conversation-line" data-question-id="ex6q5">
+      <label class="visually-hidden" for="ex6q5">Complete the first blank in Conversation 3</label>
+      <p><strong>Speaker 2:</strong> No. Chemical <input class="form-control form-control--inline question-control" type="text" id="ex6q5" name="ex6q5" autocomplete="off" placeholder="type a word or phrase"> has made it unsafe.</p>
+      <div class="question-feedback" id="ex6q5-feedback" aria-live="polite"></div>
+    </div>
+    
+    <div class="question conversation-line" data-question-id="ex6q6">
+      <label class="visually-hidden" for="ex6q6">Complete the second blank in Conversation 3</label>
+      <p><strong>Speaker 1:</strong> The authorities should identify the main <input class="form-control form-control--inline question-control" type="text" id="ex6q6" name="ex6q6" autocomplete="off" placeholder="type a word or phrase">.</p>
+      <div class="question-feedback" id="ex6q6-feedback" aria-live="polite"></div>
+    </div>
+  </section>
+</div>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-6">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-6">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-6-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+      </div>
+    </section>
+
+    <section id="practice-accuracy" class="site-section module-environmental-vocabulary" data-module-id="environmental-vocabulary" data-section-id="practice-accuracy" data-nav-label="Practice 7–9">
+      <header class="section-header">
+        <span class="section-eyebrow">Accuracy practice</span>
+        <h2 class="section-title">Odd Words, Corrections, and Transformations</h2>
+        <p class="section-description">Identify vocabulary groups, correct inaccurate word choices, and transform sentences without changing meaning.</p>
+      </header>
+      <div class="section-body activity-stack">
+        
+    <article class="activity-card" data-activity-id="exercise-7" data-activity-type="multiple-choice" data-question-count="5">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 7: Find the Odd Word Out</h3>
+          <p>Choose the word that does not belong in each group.</p>
+        </div>
+        <div class="activity-score" id="exercise-7-score" aria-live="polite">Score: 0 / 5</div>
+      </header>
+      <div class="activity-card__content">
+        
+    <fieldset class="question" data-question-id="ex7q1">
+      <legend class="question__prompt"><span class="question__number">1</span>Which word does not belong?</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex7q1-1">
+            <input type="radio" id="ex7q1-1" name="ex7q1" value="A">
+            <span><strong>A.</strong> carbon footprint</span>
+          </label>
+          <label class="option-item" for="ex7q1-2">
+            <input type="radio" id="ex7q1-2" name="ex7q1" value="B">
+            <span><strong>B.</strong> greenhouse gas</span>
+          </label>
+          <label class="option-item" for="ex7q1-3">
+            <input type="radio" id="ex7q1-3" name="ex7q1" value="C">
+            <span><strong>C.</strong> carbon neutral</span>
+          </label>
+          <label class="option-item" for="ex7q1-4">
+            <input type="radio" id="ex7q1-4" name="ex7q1" value="D">
+            <span><strong>D.</strong> reservoir</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex7q1-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex7q2">
+      <legend class="question__prompt"><span class="question__number">2</span>Which word does not belong?</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex7q2-1">
+            <input type="radio" id="ex7q2-1" name="ex7q2" value="A">
+            <span><strong>A.</strong> landfill</span>
+          </label>
+          <label class="option-item" for="ex7q2-2">
+            <input type="radio" id="ex7q2-2" name="ex7q2" value="B">
+            <span><strong>B.</strong> contamination</span>
+          </label>
+          <label class="option-item" for="ex7q2-3">
+            <input type="radio" id="ex7q2-3" name="ex7q2" value="C">
+            <span><strong>C.</strong> pollutant</span>
+          </label>
+          <label class="option-item" for="ex7q2-4">
+            <input type="radio" id="ex7q2-4" name="ex7q2" value="D">
+            <span><strong>D.</strong> scholarship</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex7q2-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex7q3">
+      <legend class="question__prompt"><span class="question__number">3</span>Which word does not belong?</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex7q3-1">
+            <input type="radio" id="ex7q3-1" name="ex7q3" value="A">
+            <span><strong>A.</strong> wildlife</span>
+          </label>
+          <label class="option-item" for="ex7q3-2">
+            <input type="radio" id="ex7q3-2" name="ex7q3" value="B">
+            <span><strong>B.</strong> ecosystem</span>
+          </label>
+          <label class="option-item" for="ex7q3-3">
+            <input type="radio" id="ex7q3-3" name="ex7q3" value="C">
+            <span><strong>C.</strong> reservoir</span>
+          </label>
+          <label class="option-item" for="ex7q3-4">
+            <input type="radio" id="ex7q3-4" name="ex7q3" value="D">
+            <span><strong>D.</strong> curriculum</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex7q3-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex7q4">
+      <legend class="question__prompt"><span class="question__number">4</span>Which word does not belong?</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex7q4-1">
+            <input type="radio" id="ex7q4-1" name="ex7q4" value="A">
+            <span><strong>A.</strong> eco-conscious</span>
+          </label>
+          <label class="option-item" for="ex7q4-2">
+            <input type="radio" id="ex7q4-2" name="ex7q4" value="B">
+            <span><strong>B.</strong> sustainable</span>
+          </label>
+          <label class="option-item" for="ex7q4-3">
+            <input type="radio" id="ex7q4-3" name="ex7q4" value="C">
+            <span><strong>C.</strong> biodegradable</span>
+          </label>
+          <label class="option-item" for="ex7q4-4">
+            <input type="radio" id="ex7q4-4" name="ex7q4" value="D">
+            <span><strong>D.</strong> toxic</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex7q4-feedback" aria-live="polite"></div>
+    </fieldset>
+    <fieldset class="question" data-question-id="ex7q5">
+      <legend class="question__prompt"><span class="question__number">5</span>Which word does not belong?</legend>
+      <div class="option-list">
+        
+          <label class="option-item" for="ex7q5-1">
+            <input type="radio" id="ex7q5-1" name="ex7q5" value="A">
+            <span><strong>A.</strong> urbanization</span>
+          </label>
+          <label class="option-item" for="ex7q5-2">
+            <input type="radio" id="ex7q5-2" name="ex7q5" value="B">
+            <span><strong>B.</strong> environmental degradation</span>
+          </label>
+          <label class="option-item" for="ex7q5-3">
+            <input type="radio" id="ex7q5-3" name="ex7q5" value="C">
+            <span><strong>C.</strong> resource depletion</span>
+          </label>
+          <label class="option-item" for="ex7q5-4">
+            <input type="radio" id="ex7q5-4" name="ex7q5" value="D">
+            <span><strong>D.</strong> lecture</span>
+          </label>
+      </div>
+      <div class="question-feedback" id="ex7q5-feedback" aria-live="polite"></div>
+    </fieldset>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-7">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-7">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-7-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+        
+    <article class="activity-card" data-activity-id="exercise-8" data-activity-type="text-correction" data-question-count="5">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 8: Correct the Vocabulary Mistakes</h3>
+          <p>Type the correct replacement word or phrase.</p>
+        </div>
+        <div class="activity-score" id="exercise-8-score" aria-live="polite">Score: 0 / 5</div>
+      </header>
+      <div class="activity-card__content">
+        
+    <div class="question" data-question-id="ex8q1">
+      <label class="question__prompt" for="ex8q1"><span class="question__number">1</span>The city stores its drinking water in a large landfill. Replace the incorrect word.</label>
+      <input class="form-control question-control" type="text" id="ex8q1" name="ex8q1" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex8q1-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex8q2">
+      <label class="question__prompt" for="ex8q2"><span class="question__number">2</span>Many companies are trying to become carbon toxic by using renewable energy. Replace the incorrect phrase.</label>
+      <input class="form-control question-control" type="text" id="ex8q2" name="ex8q2" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex8q2-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex8q3">
+      <label class="question__prompt" for="ex8q3"><span class="question__number">3</span>This plastic bottle is not environmentalist, so it may remain in the environment for centuries. Replace the incorrect word.</label>
+      <input class="form-control question-control" type="text" id="ex8q3" name="ex8q3" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex8q3-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex8q4">
+      <label class="question__prompt" for="ex8q4"><span class="question__number">4</span>The rapid growth of cities and towns is called sustainability. Replace the incorrect word.</label>
+      <input class="form-control question-control" type="text" id="ex8q4" name="ex8q4" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex8q4-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex8q5">
+      <label class="question__prompt" for="ex8q5"><span class="question__number">5</span>A reservoir is a harmful substance that pollutes the environment. Replace the incorrect word.</label>
+      <input class="form-control question-control" type="text" id="ex8q5" name="ex8q5" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex8q5-feedback" aria-live="polite"></div>
+    </div>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-8">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-8">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-8-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+        
+    <article class="activity-card" data-activity-id="exercise-9" data-activity-type="text-transformation" data-question-count="5">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 9: Sentence Transformation</h3>
+          <p>Complete the second sentence using the word given. Do not change the meaning.</p>
+        </div>
+        <div class="activity-score" id="exercise-9-score" aria-live="polite">Score: 0 / 5</div>
+      </header>
+      <div class="activity-card__content">
+        
+    <div class="question" data-question-id="ex9q1">
+      <label class="question__prompt" for="ex9q1"><span class="question__number">1</span>The company wants to produce no net carbon emissions by 2035. Use NEUTRAL: The company wants to become ________ by 2035.</label>
+      <input class="form-control question-control" type="text" id="ex9q1" name="ex9q1" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex9q1-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex9q2">
+      <label class="question__prompt" for="ex9q2"><span class="question__number">2</span>The factory has seriously harmed the natural environment. Use IMPACT: The factory has had a serious ________ on the natural environment.</label>
+      <input class="form-control question-control" type="text" id="ex9q2" name="ex9q2" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex9q2-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex9q3">
+      <label class="question__prompt" for="ex9q3"><span class="question__number">3</span>This packaging can break down naturally. Use BIODEGRADABLE: This packaging ________.</label>
+      <input class="form-control question-control" type="text" id="ex9q3" name="ex9q3" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex9q3-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex9q4">
+      <label class="question__prompt" for="ex9q4"><span class="question__number">4</span>The city needs to prepare better for floods and extreme weather. Use RESILIENCE: The city needs to improve its ________.</label>
+      <input class="form-control question-control" type="text" id="ex9q4" name="ex9q4" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex9q4-feedback" aria-live="polite"></div>
+    </div>
+    <div class="question" data-question-id="ex9q5">
+      <label class="question__prompt" for="ex9q5"><span class="question__number">5</span>Air travel creates a large amount of carbon emissions. Use FOOTPRINT: Air travel has a large ________.</label>
+      <input class="form-control question-control" type="text" id="ex9q5" name="ex9q5" placeholder="Type your answer" autocomplete="off">
+      <div class="question-feedback" id="ex9q5-feedback" aria-live="polite"></div>
+    </div>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-9">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-9">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-9-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+      </div>
+    </section>
+
+    <section id="reading-cloze" class="site-section module-environmental-vocabulary" data-module-id="environmental-vocabulary" data-section-id="reading-cloze" data-nav-label="Reading">
+      <header class="section-header">
+        <span class="section-eyebrow">Integrated reading</span>
+        <h2 class="section-title">Environmental Development Cloze</h2>
+        <p class="section-description">Use vocabulary and context clues to complete a short passage about urban development and sustainability.</p>
+      </header>
+      <div class="section-body activity-stack">
+        
+    <article class="activity-card" data-activity-id="exercise-10" data-activity-type="cloze" data-question-count="7">
+      <header class="activity-card__header">
+        <div>
+          <span class="badge badge--primary">Scored activity</span>
+          <h3>Exercise 10: Reading Cloze</h3>
+          <p>Complete the passage with words from the box. One word is extra.</p>
+        </div>
+        <div class="activity-score" id="exercise-10-score" aria-live="polite">Score: 0 / 7</div>
+      </header>
+      <div class="activity-card__content">
+        
+<div class="word-bank" aria-label="Word bank"><span>environmental impact</span><span>carbon footprint</span><span>sustainability</span><span>urbanization</span><span>wildlife</span><span>landfill</span><span>greenhouse gas</span><span>ecosystem</span></div>
+<div class="reading-column cloze-passage">
+  <p>
+    Rapid development can bring economic benefits, but it can also have a serious
+    <span class="question question--inline" data-question-id="ex10q1">
+      <label class="visually-hidden" for="ex10q1">Blank 1</label>
+      <select class="form-control form-control--cloze question-control" id="ex10q1" name="ex10q1"><option value="">Choose…</option><option value="environmental impact">environmental impact</option><option value="carbon footprint">carbon footprint</option><option value="sustainability">sustainability</option><option value="urbanization">urbanization</option><option value="wildlife">wildlife</option><option value="landfill">landfill</option><option value="greenhouse gas">greenhouse gas</option><option value="ecosystem">ecosystem</option></select>
+      <span class="question-feedback question-feedback--inline" id="ex10q1-feedback" aria-live="polite"></span>
+    </span>.
+    As cities grow,
+    <span class="question question--inline" data-question-id="ex10q2">
+      <label class="visually-hidden" for="ex10q2">Blank 2</label>
+      <select class="form-control form-control--cloze question-control" id="ex10q2" name="ex10q2"><option value="">Choose…</option><option value="environmental impact">environmental impact</option><option value="carbon footprint">carbon footprint</option><option value="sustainability">sustainability</option><option value="urbanization">urbanization</option><option value="wildlife">wildlife</option><option value="landfill">landfill</option><option value="greenhouse gas">greenhouse gas</option><option value="ecosystem">ecosystem</option></select>
+      <span class="question-feedback question-feedback--inline" id="ex10q2-feedback" aria-live="polite"></span>
+    </span>
+    often leads to the loss of forests and green spaces. This can damage the local
+    <span class="question question--inline" data-question-id="ex10q3">
+      <label class="visually-hidden" for="ex10q3">Blank 3</label>
+      <select class="form-control form-control--cloze question-control" id="ex10q3" name="ex10q3"><option value="">Choose…</option><option value="environmental impact">environmental impact</option><option value="carbon footprint">carbon footprint</option><option value="sustainability">sustainability</option><option value="urbanization">urbanization</option><option value="wildlife">wildlife</option><option value="landfill">landfill</option><option value="greenhouse gas">greenhouse gas</option><option value="ecosystem">ecosystem</option></select>
+      <span class="question-feedback question-feedback--inline" id="ex10q3-feedback" aria-live="polite"></span>
+    </span>
+    and threaten
+    <span class="question question--inline" data-question-id="ex10q4">
+      <label class="visually-hidden" for="ex10q4">Blank 4</label>
+      <select class="form-control form-control--cloze question-control" id="ex10q4" name="ex10q4"><option value="">Choose…</option><option value="environmental impact">environmental impact</option><option value="carbon footprint">carbon footprint</option><option value="sustainability">sustainability</option><option value="urbanization">urbanization</option><option value="wildlife">wildlife</option><option value="landfill">landfill</option><option value="greenhouse gas">greenhouse gas</option><option value="ecosystem">ecosystem</option></select>
+      <span class="question-feedback question-feedback--inline" id="ex10q4-feedback" aria-live="polite"></span>
+    </span>.
+  </p>
+  <p>
+    In addition, large amounts of household waste are sent to a
+    <span class="question question--inline" data-question-id="ex10q5">
+      <label class="visually-hidden" for="ex10q5">Blank 5</label>
+      <select class="form-control form-control--cloze question-control" id="ex10q5" name="ex10q5"><option value="">Choose…</option><option value="environmental impact">environmental impact</option><option value="carbon footprint">carbon footprint</option><option value="sustainability">sustainability</option><option value="urbanization">urbanization</option><option value="wildlife">wildlife</option><option value="landfill">landfill</option><option value="greenhouse gas">greenhouse gas</option><option value="ecosystem">ecosystem</option></select>
+      <span class="question-feedback question-feedback--inline" id="ex10q5-feedback" aria-live="polite"></span>
+    </span>,
+    while transport and factories increase the city’s
+    <span class="question question--inline" data-question-id="ex10q6">
+      <label class="visually-hidden" for="ex10q6">Blank 6</label>
+      <select class="form-control form-control--cloze question-control" id="ex10q6" name="ex10q6"><option value="">Choose…</option><option value="environmental impact">environmental impact</option><option value="carbon footprint">carbon footprint</option><option value="sustainability">sustainability</option><option value="urbanization">urbanization</option><option value="wildlife">wildlife</option><option value="landfill">landfill</option><option value="greenhouse gas">greenhouse gas</option><option value="ecosystem">ecosystem</option></select>
+      <span class="question-feedback question-feedback--inline" id="ex10q6-feedback" aria-live="polite"></span>
+    </span>.
+    To achieve long-term
+    <span class="question question--inline" data-question-id="ex10q7">
+      <label class="visually-hidden" for="ex10q7">Blank 7</label>
+      <select class="form-control form-control--cloze question-control" id="ex10q7" name="ex10q7"><option value="">Choose…</option><option value="environmental impact">environmental impact</option><option value="carbon footprint">carbon footprint</option><option value="sustainability">sustainability</option><option value="urbanization">urbanization</option><option value="wildlife">wildlife</option><option value="landfill">landfill</option><option value="greenhouse gas">greenhouse gas</option><option value="ecosystem">ecosystem</option></select>
+      <span class="question-feedback question-feedback--inline" id="ex10q7-feedback" aria-live="polite"></span>
+    </span>,
+    governments must invest in renewable energy, public transport, and effective waste management.
+  </p>
+</div>
+      </div>
+      <div class="activity-card__actions button-group">
+        <button class="btn btn--primary check-activity" type="button" data-activity-target="exercise-10">Check answers</button>
+        <button class="btn btn--secondary reset-activity" type="button" data-activity-target="exercise-10">Reset activity</button>
+      </div>
+      <div class="activity-card__feedback feedback feedback--info" id="exercise-10-feedback" aria-live="polite">
+        <span aria-hidden="true">ℹ</span>
+        <span>Complete all questions, then check your answers.</span>
+      </div>
+    </article>
+      </div>
+    </section>
+
+    <section id="lesson-summary" class="site-section module-environmental-vocabulary" data-module-id="environmental-vocabulary" data-section-id="lesson-summary" data-nav-label="Summary">
+      <header class="section-header">
+        <span class="section-eyebrow">Learning dashboard</span>
+        <h2 class="section-title">Progress and Answer Review</h2>
+        <p class="section-description">Check your total score, completion status, and the original answer key.</p>
+      </header>
+
+      <div class="section-body">
+        <div class="summary-dashboard">
+          <div class="summary-stat">
+            <span class="summary-stat__value" id="summary-score-value">0 / 53</span>
+            <span class="summary-stat__label">Total score</span>
+          </div>
+          <div class="summary-stat">
+            <span class="summary-stat__value" id="summary-completion-value">0%</span>
+            <span class="summary-stat__label">Lesson completion</span>
+          </div>
+          <div class="summary-stat">
+            <span class="summary-stat__value" id="summary-activities-value">0 / 10</span>
+            <span class="summary-stat__label">Exercises checked</span>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="progress">
+            <div class="progress__label">
+              <span>Required items</span>
+              <span class="progress__value" id="summary-progress-value">0 of 11 required items</span>
+            </div>
+            <div class="progress__track" id="summary-progress-track" role="progressbar" aria-label="Lesson completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress__fill" id="summary-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback feedback--info" id="summary-message" aria-live="polite">
+          Continue learning: 11 required items remaining.
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn--primary" id="review-next-button" type="button">Continue</button>
+          <button class="btn btn--secondary" id="toggle-answer-key" type="button" aria-expanded="false" aria-controls="answer-key-panel">Show answer key</button>
+        </div>
+
+        <div class="answer-key-panel" id="answer-key-panel" tabindex="-1" hidden>
+          <h3>Answer Key</h3>
+          <p class="text-muted">Use this section after attempting the activities.</p>
+          <div class="answer-key-grid">
+            
+<div class="answer-key-item">
+  <h4>Exercise 1</h4>
+  <p>1–B, 2–C, 3–D, 4–E, 5–A</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 2</h4>
+  <p>1. B · 2. C · 3. A · 4. B · 5. B</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 3</h4>
+  <p>1. eco-conscious · 2. ecosystem · 3. toxic · 4. depletion · 5. sustainability</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 4</h4>
+  <p>1. environmental impact · 2. climate resilience · 3. greenhouse gas · 4. resource depletion · 5. environmental degradation</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 5</h4>
+  <p>1. urbanization · 2. biodegradable · 3. climate resilience · 4. environmental impact · 5. environmental degradation</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 6</h4>
+  <p>1. carbon footprint · 2. eco-conscious · 3. urbanization · 4. wildlife · 5. contamination · 6. pollutant</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 7</h4>
+  <p>1. reservoir · 2. scholarship · 3. curriculum · 4. toxic · 5. lecture</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 8</h4>
+  <p>1. reservoir · 2. carbon neutral · 3. biodegradable · 4. urbanization · 5. pollutant</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 9</h4>
+  <p>1. carbon neutral · 2. environmental impact · 3. is biodegradable · 4. climate resilience · 5. carbon footprint</p>
+</div>
+
+<div class="answer-key-item">
+  <h4>Exercise 10</h4>
+  <p>1. environmental impact · 2. urbanization · 3. ecosystem · 4. wildlife · 5. landfill · 6. carbon footprint · 7. sustainability</p>
+</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p class="site-footer__copyright">© Center for Foreign Languages - Can Tho University</p>
+</footer>
+
+<div id="site-toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+
+const LearningSite = {
+  state: {
+    score: {
+      activities: {},
+      earned: 0,
+      possible: 0
+    },
+    progress: {
+      requiredItems: [],
+      completedItems: new Set()
+    },
+    preferences: {
+      fontScale: 100
+    },
+    activeSection: null
+  },
+
+  modules: {},
+
+  answerKey: {"ex1q1":{"accepted":["B"],"display":"B — able to break down naturally without harming the environment","explanation":"Biodegradable materials break down naturally."},"ex1q2":{"accepted":["C"],"display":"C — the total amount of carbon emissions caused by a person or activity","explanation":"A carbon footprint measures carbon emissions."},"ex1q3":{"accepted":["D"],"display":"D — the process of making something dirty or unsafe","explanation":"Contamination makes something polluted or unsafe."},"ex1q4":{"accepted":["E"],"display":"E — a natural or artificial lake used to store water","explanation":"A reservoir stores water."},"ex1q5":{"accepted":["A"],"display":"A — the variety of animals living naturally in an area","explanation":"Wildlife means animals living naturally in an area."},"ex2q1":{"accepted":["B"],"display":"B. carbon neutral","explanation":"Carbon neutral means producing no net carbon emissions."},"ex2q2":{"accepted":["C"],"display":"C. landfill","explanation":"A landfill is a place where waste is buried."},"ex2q3":{"accepted":["A"],"display":"A. greenhouse gas","explanation":"Carbon dioxide is a greenhouse gas."},"ex2q4":{"accepted":["B"],"display":"B. environmentalist","explanation":"An environmentalist works to protect nature."},"ex2q5":{"accepted":["B"],"display":"B. pollutant","explanation":"A pollutant damages air, water, or soil."},"ex3q1":{"accepted":["eco-conscious"],"display":"eco-conscious","explanation":"Eco-conscious consumers make environmentally responsible choices."},"ex3q2":{"accepted":["ecosystem"],"display":"ecosystem","explanation":"A marine ecosystem includes organisms and their environment."},"ex3q3":{"accepted":["toxic"],"display":"toxic","explanation":"Toxic chemicals are poisonous or harmful."},"ex3q4":{"accepted":["depletion"],"display":"depletion","explanation":"Depletion means a serious reduction in a resource or population."},"ex3q5":{"accepted":["sustainability"],"display":"sustainability","explanation":"Sustainability focuses on long-term environmental balance."},"ex4q1":{"accepted":["C"],"display":"C — environmental impact","explanation":"Environmental impact is the effect of an action on the environment."},"ex4q2":{"accepted":["A"],"display":"A — climate resilience","explanation":"Climate resilience is the ability to cope with climate risks."},"ex4q3":{"accepted":["B"],"display":"B — greenhouse gas","explanation":"Greenhouse gas is the standard collocation."},"ex4q4":{"accepted":["E"],"display":"E — resource depletion","explanation":"Resource depletion means using up natural resources."},"ex4q5":{"accepted":["D"],"display":"D — environmental degradation","explanation":"Environmental degradation means damage to the natural environment."},"ex5q1":{"accepted":["A"],"display":"urbanization","explanation":"Urbanization is the rapid growth of cities."},"ex5q2":{"accepted":["B"],"display":"biodegradable","explanation":"Biodegradable packaging breaks down naturally."},"ex5q3":{"accepted":["A"],"display":"climate resilience","explanation":"Flood barriers help a city cope with climate risks."},"ex5q4":{"accepted":["A"],"display":"environmental impact","explanation":"Activities have an environmental impact."},"ex5q5":{"accepted":["A"],"display":"environmental degradation","explanation":"Pollution can cause environmental degradation."},"ex6q1":{"accepted":["carbon footprint","the carbon footprint"],"display":"carbon footprint","explanation":"A reusable bottle can reduce a person's carbon footprint."},"ex6q2":{"accepted":["eco-conscious"],"display":"eco-conscious","explanation":"Eco-conscious describes a choice that considers the environment."},"ex6q3":{"accepted":["urbanization"],"display":"urbanization","explanation":"Urbanization can destroy natural habitats."},"ex6q4":{"accepted":["wildlife","local wildlife"],"display":"wildlife","explanation":"Wildlife refers to animals living naturally in the area."},"ex6q5":{"accepted":["contamination","chemical contamination"],"display":"contamination","explanation":"Chemical contamination can make water unsafe."},"ex6q6":{"accepted":["pollutant","main pollutant"],"display":"pollutant","explanation":"A pollutant is a harmful substance in the environment."},"ex7q1":{"accepted":["D"],"display":"reservoir","explanation":"The other three terms relate directly to carbon emissions."},"ex7q2":{"accepted":["D"],"display":"scholarship","explanation":"Scholarship is an education word, not an environmental pollution term."},"ex7q3":{"accepted":["D"],"display":"curriculum","explanation":"Curriculum is an education word."},"ex7q4":{"accepted":["D"],"display":"toxic","explanation":"The other three words can describe environmentally responsible products or behaviour."},"ex7q5":{"accepted":["D"],"display":"lecture","explanation":"Lecture is an education word."},"ex8q1":{"accepted":["reservoir"],"display":"reservoir","explanation":"A reservoir stores drinking water."},"ex8q2":{"accepted":["carbon neutral"],"display":"carbon neutral","explanation":"Companies aim to become carbon neutral, not carbon toxic."},"ex8q3":{"accepted":["biodegradable"],"display":"biodegradable","explanation":"A bottle that does not break down is not biodegradable."},"ex8q4":{"accepted":["urbanization"],"display":"urbanization","explanation":"Urbanization is the growth of cities and towns."},"ex8q5":{"accepted":["pollutant"],"display":"pollutant","explanation":"A pollutant is a harmful substance that pollutes the environment."},"ex9q1":{"accepted":["carbon neutral"],"display":"carbon neutral","explanation":"Become carbon neutral means produce no net carbon emissions."},"ex9q2":{"accepted":["environmental impact"],"display":"environmental impact","explanation":"Have an environmental impact means affect the natural environment."},"ex9q3":{"accepted":["is biodegradable"],"display":"is biodegradable","explanation":"Biodegradable means able to break down naturally."},"ex9q4":{"accepted":["climate resilience"],"display":"climate resilience","explanation":"Climate resilience is the ability to prepare for and recover from climate risks."},"ex9q5":{"accepted":["carbon footprint"],"display":"carbon footprint","explanation":"A carbon footprint is the amount of carbon emissions caused by an activity."},"ex10q1":{"accepted":["environmental impact"],"display":"environmental impact","explanation":"Development can have an effect on the environment."},"ex10q2":{"accepted":["urbanization"],"display":"urbanization","explanation":"The growth of cities can reduce forests and green spaces."},"ex10q3":{"accepted":["ecosystem"],"display":"ecosystem","explanation":"Loss of green space damages the local ecosystem."},"ex10q4":{"accepted":["wildlife"],"display":"wildlife","explanation":"Habitat loss threatens wildlife."},"ex10q5":{"accepted":["landfill"],"display":"landfill","explanation":"Household waste is commonly sent to a landfill."},"ex10q6":{"accepted":["carbon footprint"],"display":"carbon footprint","explanation":"Transport and factories increase carbon emissions."},"ex10q7":{"accepted":["sustainability"],"display":"sustainability","explanation":"Renewable energy and waste management support long-term sustainability."}},
+
+  registerModule(moduleConfig) {
+    if (!moduleConfig || !moduleConfig.id) {
+      return;
+    }
+    this.modules[moduleConfig.id] = moduleConfig;
+    const items = Array.isArray(moduleConfig.requiredCompletionItems)
+      ? moduleConfig.requiredCompletionItems
+      : [];
+    items.forEach((item) => {
+      if (!this.state.progress.requiredItems.includes(item)) {
+        this.state.progress.requiredItems.push(item);
+      }
+    });
+  },
+
+  init() {
+    this.loadState();
+    this.initialiseScore();
+    this.initialiseNavigation();
+    this.initialiseFontControls();
+    this.initialiseSpeech();
+    this.bindGlobalActions();
+
+    Object.values(this.modules).forEach((moduleConfig) => {
+      try {
+        if (typeof moduleConfig.init === "function") {
+          moduleConfig.init();
+        }
+      } catch (error) {
+        this.showToast("A lesson feature could not be started. The remaining activities are still available.");
+      }
+    });
+
+    this.updateScore();
+    this.updateProgress();
+  },
+
+  initialiseScore() {
+    document.querySelectorAll("[data-activity-id]").forEach((activity) => {
+      const activityId = activity.dataset.activityId;
+      const possible = Number(activity.dataset.questionCount || 0);
+      this.state.score.activities[activityId] = {
+        earned: 0,
+        possible,
+        submitted: false
+      };
+    });
+  },
+
+  initialiseNavigation() {
+    const navRoot = document.querySelector(".site-navigation__inner");
+    const sections = Array.from(document.querySelectorAll("[data-nav-label]"));
+    if (!navRoot || sections.length === 0) {
+      return;
+    }
+
+    navRoot.textContent = "";
+    sections.forEach((section, index) => {
+      const link = document.createElement("a");
+      link.className = "site-navigation__link";
+      link.href = `#${section.id}`;
+      link.dataset.sectionId = section.id;
+      link.dataset.complete = "false";
+      link.textContent = section.dataset.navLabel;
+      if (index === 0) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "location");
+      }
+      navRoot.appendChild(link);
+    });
+
+    const reducedMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    navRoot.addEventListener("click", (event) => {
+      const link = event.target.closest(".site-navigation__link");
+      if (!link) {
+        return;
+      }
+      const target = document.getElementById(link.dataset.sectionId);
+      if (!target) {
+        return;
+      }
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: reducedMotion ? "auto" : "smooth",
+        block: "start"
+      });
+      history.replaceState(null, "", `#${target.id}`);
+    });
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => {
+            const aDistance = Math.abs(a.boundingClientRect.top);
+            const bDistance = Math.abs(b.boundingClientRect.top);
+            return aDistance - bDistance;
+          });
+        if (visible.length > 0) {
+          this.setActiveSection(visible[0].target.id);
+        }
+      }, {
+        rootMargin: "-20% 0px -65% 0px",
+        threshold: [0, 0.05, 0.25, 0.5]
+      });
+      sections.forEach((section) => observer.observe(section));
+    } else {
+      let ticking = false;
+      window.addEventListener("scroll", () => {
+        if (ticking) {
+          return;
+        }
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          const candidate = sections
+            .map((section) => ({
+              id: section.id,
+              distance: Math.abs(section.getBoundingClientRect().top - 120)
+            }))
+            .sort((a, b) => a.distance - b.distance)[0];
+          if (candidate) {
+            this.setActiveSection(candidate.id);
+          }
+          ticking = false;
+        });
+      }, { passive: true });
+    }
+  },
+
+  setActiveSection(sectionId) {
+    if (!sectionId || this.state.activeSection === sectionId) {
+      return;
+    }
+    this.state.activeSection = sectionId;
+    document.querySelectorAll(".site-navigation__link").forEach((link) => {
+      const isActive = link.dataset.sectionId === sectionId;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  },
+
+  initialiseFontControls() {
+    this.applyFontScale(this.state.preferences.fontScale, false);
+  },
+
+  applyFontScale(scale, save = true) {
+    const safeScale = Math.min(125, Math.max(90, Number(scale) || 100));
+    this.state.preferences.fontScale = safeScale;
+    document.documentElement.style.fontSize = `calc(var(--site-font-size) * ${safeScale / 100})`;
+    const resetButton = document.querySelector('[data-font-action="reset"]');
+    if (resetButton) {
+      resetButton.setAttribute("aria-label", `Reset text size. Current size ${safeScale} percent.`);
+      resetButton.title = `Current text size: ${safeScale}%`;
+    }
+    if (save) {
+      this.saveState();
+    }
+  },
+
+  initialiseSpeech() {
+    const available = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+    document.querySelectorAll("[data-speak], #stop-speech").forEach((button) => {
+      button.disabled = !available;
+      if (!available) {
+        button.title = "Speech synthesis is not available in this browser.";
+      }
+    });
+  },
+
+  speak(text) {
+    if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+      this.showToast("Speech synthesis is unavailable in this browser.");
+      return;
+    }
+    const content = String(text || "").trim();
+    if (!content) {
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(content);
+    utterance.lang = "en-GB";
+    utterance.rate = 0.85;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    utterance.onerror = () => {
+      this.showToast("The pronunciation could not be played.");
+    };
+    window.speechSynthesis.speak(utterance);
+  },
+
+  stopSpeech() {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  },
+
+  bindGlobalActions() {
+    document.addEventListener("click", (event) => {
+      const checkButton = event.target.closest(".check-activity");
+      if (checkButton) {
+        this.checkActivity(checkButton.dataset.activityTarget);
+        return;
+      }
+
+      const resetActivityButton = event.target.closest(".reset-activity");
+      if (resetActivityButton) {
+        this.resetActivity(resetActivityButton.dataset.activityTarget);
+        return;
+      }
+
+      const speakButton = event.target.closest("[data-speak]");
+      if (speakButton) {
+        this.speak(speakButton.dataset.speak);
+        return;
+      }
+
+      if (event.target.closest("#stop-speech")) {
+        this.stopSpeech();
+        this.showToast("Pronunciation stopped.");
+        return;
+      }
+
+      const fontButton = event.target.closest("[data-font-action]");
+      if (fontButton) {
+        const action = fontButton.dataset.fontAction;
+        if (action === "increase") {
+          this.applyFontScale(this.state.preferences.fontScale + 10);
+        } else if (action === "decrease") {
+          this.applyFontScale(this.state.preferences.fontScale - 10);
+        } else {
+          this.applyFontScale(100);
+        }
+        return;
+      }
+
+      if (event.target.closest("#reset-lesson")) {
+        this.resetSite();
+        return;
+      }
+
+      const scrollButton = event.target.closest("[data-scroll-target]");
+      if (scrollButton) {
+        const target = document.getElementById(scrollButton.dataset.scrollTarget);
+        if (target) {
+          const reducedMotion = window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          target.scrollIntoView({
+            behavior: reducedMotion ? "auto" : "smooth",
+            block: "start"
+          });
+        }
+      }
+    });
+  },
+
+  getQuestionValue(question) {
+    const checked = question.querySelector('input[type="radio"]:checked');
+    if (checked) {
+      return checked.value;
+    }
+    const select = question.querySelector("select.question-control");
+    if (select) {
+      return select.value;
+    }
+    const textInput = question.querySelector('input[type="text"].question-control');
+    if (textInput) {
+      return textInput.value;
+    }
+    return "";
+  },
+
+  normaliseAnswer(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[’‘]/g, "'")
+      .replace(/\s+/g, " ")
+      .replace(/[.!?]+$/g, "");
+  },
+
+  checkActivity(activityId) {
+    const activity = document.querySelector(`[data-activity-id="${CSS.escape(activityId)}"]`);
+    if (!activity) {
+      return;
+    }
+
+    const questions = Array.from(activity.querySelectorAll(".question[data-question-id]"));
+    let earned = 0;
+    let possible = 0;
+    let answered = 0;
+
+    questions.forEach((question) => {
+      const questionId = question.dataset.questionId;
+      const answerRecord = this.answerKey[questionId];
+      const feedback = document.getElementById(`${questionId}-feedback`);
+
+      question.classList.remove("is-correct", "is-incorrect", "is-unanswered");
+
+      if (!answerRecord) {
+        if (feedback) {
+          feedback.textContent = "This item cannot be scored because the required source information is unavailable.";
+        }
+        return;
+      }
+
+      possible += 1;
+      const rawValue = this.getQuestionValue(question);
+      const normalisedValue = this.normaliseAnswer(rawValue);
+      const accepted = answerRecord.accepted.map((item) => this.normaliseAnswer(item));
+
+      if (!normalisedValue) {
+        question.classList.add("is-unanswered");
+        if (feedback) {
+          feedback.textContent = `Please answer this question. Correct answer: ${answerRecord.display}.`;
+        }
+        return;
+      }
+
+      answered += 1;
+      if (accepted.includes(normalisedValue)) {
+        earned += 1;
+        question.classList.add("is-correct");
+        if (feedback) {
+          feedback.textContent = `✓ Correct! ${answerRecord.explanation}`;
+        }
+      } else {
+        question.classList.add("is-incorrect");
+        if (feedback) {
+          feedback.textContent = `✕ Not quite. Correct answer: ${answerRecord.display}. ${answerRecord.explanation}`;
+        }
+      }
+    });
+
+    const allAnswered = answered === possible && possible > 0;
+    const activityFeedback = document.getElementById(`${activityId}-feedback`);
+    const activityScore = document.getElementById(`${activityId}-score`);
+
+    if (activityScore) {
+      activityScore.textContent = `Score: ${earned} / ${possible}`;
+    }
+
+    if (activityFeedback) {
+      activityFeedback.classList.remove(
+        "feedback--correct",
+        "feedback--incorrect",
+        "feedback--partial",
+        "feedback--info",
+        "feedback--warning"
+      );
+
+      if (!allAnswered) {
+        activityFeedback.classList.add("feedback--warning");
+        activityFeedback.innerHTML = `<span aria-hidden="true">△</span><span>Partly complete. You scored ${earned} / ${possible}. Answer every question to complete this activity.</span>`;
+      } else if (earned === possible) {
+        activityFeedback.classList.add("feedback--correct");
+        activityFeedback.innerHTML = `<span aria-hidden="true">✓</span><span>Activity completed. You scored ${earned} / ${possible}.</span>`;
+      } else {
+        activityFeedback.classList.add("feedback--partial");
+        activityFeedback.innerHTML = `<span aria-hidden="true">△</span><span>Partly correct. You scored ${earned} / ${possible}. Review the explanations and try again.</span>`;
+      }
+    }
+
+    this.updateActivityScore(activityId, earned, possible, true);
+    this.markComplete(activityId, allAnswered);
+    this.showToast(allAnswered
+      ? `Exercise checked: ${earned} / ${possible}.`
+      : `Exercise checked. ${possible - answered} question${possible - answered === 1 ? "" : "s"} unanswered.`);
+  },
+
+  resetActivity(activityId, announce = true) {
+    const activity = document.querySelector(`[data-activity-id="${CSS.escape(activityId)}"]`);
+    if (!activity) {
+      return;
+    }
+
+    activity.querySelectorAll("input, select, textarea").forEach((control) => {
+      if (control.type === "radio" || control.type === "checkbox") {
+        control.checked = false;
+      } else if (control.tagName === "SELECT") {
+        control.selectedIndex = 0;
+      } else {
+        control.value = "";
+      }
+    });
+
+    activity.querySelectorAll(".question").forEach((question) => {
+      question.classList.remove("is-correct", "is-incorrect", "is-unanswered");
+    });
+
+    activity.querySelectorAll(".question-feedback").forEach((feedback) => {
+      feedback.textContent = "";
+    });
+
+    const possible = Number(activity.dataset.questionCount || 0);
+    const score = document.getElementById(`${activityId}-score`);
+    if (score) {
+      score.textContent = `Score: 0 / ${possible}`;
+    }
+
+    const feedback = document.getElementById(`${activityId}-feedback`);
+    if (feedback) {
+      feedback.className = "activity-card__feedback feedback feedback--info";
+      feedback.innerHTML = '<span aria-hidden="true">ℹ</span><span>Complete all questions, then check your answers.</span>';
+    }
+
+    this.updateActivityScore(activityId, 0, possible, false);
+    this.markComplete(activityId, false);
+
+    if (announce) {
+      this.showToast("Activity reset.");
+    }
+  },
+
+  updateActivityScore(activityId, earned, possible, submitted) {
+    const safePossible = Math.max(0, Number(possible) || 0);
+    const safeEarned = Math.min(safePossible, Math.max(0, Number(earned) || 0));
+    this.state.score.activities[activityId] = {
+      earned: safeEarned,
+      possible: safePossible,
+      submitted: Boolean(submitted)
+    };
+    this.updateScore();
+  },
+
+  updateScore() {
+    const values = Object.values(this.state.score.activities);
+    const earned = values.reduce((sum, item) => sum + item.earned, 0);
+    const possible = values.reduce((sum, item) => sum + item.possible, 0);
+
+    this.state.score.earned = Math.max(0, Math.min(earned, possible));
+    this.state.score.possible = Math.max(0, possible);
+
+    const headerValue = document.getElementById("header-score-value");
+    if (headerValue) {
+      headerValue.textContent = `${this.state.score.earned} / ${this.state.score.possible}`;
+    }
+
+    const summaryValue = document.getElementById("summary-score-value");
+    if (summaryValue) {
+      summaryValue.textContent = `${this.state.score.earned} / ${this.state.score.possible}`;
+    }
+
+    const submittedCount = values.filter((item) => item.submitted).length;
+    const summaryActivities = document.getElementById("summary-activities-value");
+    if (summaryActivities) {
+      summaryActivities.textContent = `${submittedCount} / ${values.length}`;
+    }
+  },
+
+  markComplete(itemId, complete = true) {
+    if (!this.state.progress.requiredItems.includes(itemId)) {
+      return;
+    }
+
+    if (complete) {
+      this.state.progress.completedItems.add(itemId);
+    } else {
+      this.state.progress.completedItems.delete(itemId);
+    }
+    this.updateProgress();
+  },
+
+  updateProgress() {
+    const total = this.state.progress.requiredItems.length;
+    const completed = Array.from(this.state.progress.completedItems)
+      .filter((item) => this.state.progress.requiredItems.includes(item)).length;
+    const percentage = total === 0 ? 0 : Math.round((completed / total) * 100);
+    const safePercentage = Math.min(100, Math.max(0, percentage));
+
+    const headerValue = document.getElementById("header-progress-value");
+    if (headerValue) {
+      headerValue.textContent = `${safePercentage}%`;
+    }
+
+    const headerTrack = document.getElementById("header-progress-track");
+    const headerFill = document.getElementById("header-progress-fill");
+    if (headerTrack) {
+      headerTrack.setAttribute("aria-valuenow", String(safePercentage));
+      headerTrack.setAttribute("aria-valuetext", `${safePercentage}% complete`);
+    }
+    if (headerFill) {
+      headerFill.style.width = `${safePercentage}%`;
+    }
+
+    const summaryValue = document.getElementById("summary-completion-value");
+    if (summaryValue) {
+      summaryValue.textContent = `${safePercentage}%`;
+    }
+
+    const summaryProgressValue = document.getElementById("summary-progress-value");
+    if (summaryProgressValue) {
+      summaryProgressValue.textContent = `${completed} of ${total} required items`;
+    }
+
+    const summaryTrack = document.getElementById("summary-progress-track");
+    const summaryFill = document.getElementById("summary-progress-fill");
+    if (summaryTrack) {
+      summaryTrack.setAttribute("aria-valuenow", String(safePercentage));
+      summaryTrack.setAttribute("aria-valuetext", `${safePercentage}% complete`);
+    }
+    if (summaryFill) {
+      summaryFill.style.width = `${safePercentage}%`;
+    }
+
+    const summaryMessage = document.getElementById("summary-message");
+    if (summaryMessage) {
+      if (safePercentage === 100) {
+        summaryMessage.textContent = "✓ Lesson completed. Review any exercise or open the answer key for final checking.";
+        summaryMessage.className = "feedback feedback--correct";
+      } else {
+        summaryMessage.textContent = `Continue learning: ${total - completed} required item${total - completed === 1 ? "" : "s"} remaining.`;
+        summaryMessage.className = "feedback feedback--info";
+      }
+    }
+
+    this.updateSectionCompletion();
+  },
+
+  updateSectionCompletion() {
+    const groups = {
+      "lesson-overview": [],
+      "vocabulary": ["vocabulary-review"],
+      "practice-foundations": ["exercise-1", "exercise-2", "exercise-3"],
+      "practice-context": ["exercise-4", "exercise-5", "exercise-6"],
+      "practice-accuracy": ["exercise-7", "exercise-8", "exercise-9"],
+      "reading-cloze": ["exercise-10"],
+      "lesson-summary": this.state.progress.requiredItems
+    };
+
+    document.querySelectorAll(".site-navigation__link").forEach((link) => {
+      const required = groups[link.dataset.sectionId] || [];
+      const complete = required.length > 0 &&
+        required.every((item) => this.state.progress.completedItems.has(item));
+      link.dataset.complete = String(complete);
+      const baseLabel = document.getElementById(link.dataset.sectionId)?.dataset.navLabel || "Section";
+      link.setAttribute("aria-label", complete ? `${baseLabel}, completed` : baseLabel);
+    });
+  },
+
+  showToast(message) {
+    const region = document.getElementById("site-toast-region");
+    if (!region) {
+      return;
+    }
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.textContent = message;
+    region.appendChild(toast);
+    window.setTimeout(() => {
+      toast.remove();
+    }, 3200);
+  },
+
+  resetSite() {
+    const confirmed = window.confirm("Reset the entire lesson? All answers, scores, and progress will be cleared.");
+    if (!confirmed) {
+      return;
+    }
+
+    this.stopSpeech();
+
+    document.querySelectorAll("[data-activity-id]").forEach((activity) => {
+      this.resetActivity(activity.dataset.activityId, false);
+    });
+
+    Object.values(this.modules).forEach((moduleConfig) => {
+      try {
+        if (typeof moduleConfig.reset === "function") {
+          moduleConfig.reset();
+        }
+      } catch (error) {
+        this.showToast("One section could not be fully reset.");
+      }
+    });
+
+    this.state.progress.completedItems.clear();
+    this.state.preferences.fontScale = 100;
+    this.applyFontScale(100, false);
+
+    try {
+      Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith("interactive-learning-site:")) {
+          localStorage.removeItem(key);
+        }
+      });
+    } catch (error) {
+      // Continue without storage.
+    }
+
+    this.updateScore();
+    this.updateProgress();
+
+    const overview = document.getElementById("lesson-overview");
+    if (overview) {
+      const reducedMotion = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      overview.scrollIntoView({
+        behavior: reducedMotion ? "auto" : "smooth",
+        block: "start"
+      });
+    }
+    this.showToast("Lesson reset.");
+  },
+
+  saveState() {
+    try {
+      localStorage.setItem(
+        "interactive-learning-site:font-scale",
+        String(this.state.preferences.fontScale)
+      );
+    } catch (error) {
+      // The lesson continues without saved preferences.
+    }
+  },
+
+  loadState() {
+    try {
+      const storedScale = Number(localStorage.getItem("interactive-learning-site:font-scale"));
+      if (storedScale >= 90 && storedScale <= 125) {
+        this.state.preferences.fontScale = storedScale;
+      }
+    } catch (error) {
+      this.state.preferences.fontScale = 100;
+    }
+  }
+};
+
+LearningSite.registerModule({
+  id: "environmental-vocabulary",
+  title: "Environmental Vocabulary Practice",
+  sectionIds: [
+    "vocabulary",
+    "practice-foundations",
+    "practice-context",
+    "practice-accuracy",
+    "reading-cloze",
+    "lesson-summary"
+  ],
+  requiredCompletionItems: [
+    "vocabulary-review",
+    "exercise-1",
+    "exercise-2",
+    "exercise-3",
+    "exercise-4",
+    "exercise-5",
+    "exercise-6",
+    "exercise-7",
+    "exercise-8",
+    "exercise-9",
+    "exercise-10"
+  ],
+
+  init() {
+    const searchInput = document.getElementById("vocab-search");
+    const count = document.getElementById("vocab-count");
+    const cards = Array.from(document.querySelectorAll(".vocab-card"));
+    const emptyState = document.getElementById("vocab-empty-state");
+
+    const filterCards = () => {
+      const query = LearningSite.normaliseAnswer(searchInput?.value || "");
+      let visible = 0;
+      cards.forEach((card) => {
+        const matches = !query || card.dataset.vocabSearch.includes(query);
+        card.hidden = !matches;
+        if (matches) {
+          visible += 1;
+        }
+      });
+      if (count) {
+        count.textContent = `${visible} of ${cards.length} words shown`;
+      }
+      if (emptyState) {
+        emptyState.hidden = visible !== 0;
+      }
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener("input", filterCards);
+      filterCards();
+    }
+
+    const reviewButton = document.getElementById("mark-vocab-complete");
+    if (reviewButton) {
+      reviewButton.addEventListener("click", () => {
+        LearningSite.markComplete("vocabulary-review", true);
+        reviewButton.disabled = true;
+        reviewButton.textContent = "✓ Vocabulary reviewed";
+        LearningSite.showToast("Vocabulary section marked complete.");
+      });
+    }
+
+    const answerKeyButton = document.getElementById("toggle-answer-key");
+    const answerKeyPanel = document.getElementById("answer-key-panel");
+    if (answerKeyButton && answerKeyPanel) {
+      answerKeyButton.addEventListener("click", () => {
+        const isHidden = answerKeyPanel.hidden;
+        answerKeyPanel.hidden = !isHidden;
+        answerKeyButton.setAttribute("aria-expanded", String(isHidden));
+        answerKeyButton.textContent = isHidden ? "Hide answer key" : "Show answer key";
+        if (isHidden) {
+          answerKeyPanel.focus();
+        }
+      });
+    }
+
+    const reviewNextButton = document.getElementById("review-next-button");
+    if (reviewNextButton) {
+      reviewNextButton.addEventListener("click", () => {
+        const nextItem = LearningSite.state.progress.requiredItems
+          .find((item) => !LearningSite.state.progress.completedItems.has(item));
+        if (!nextItem) {
+          LearningSite.showToast("All required items are complete.");
+          return;
+        }
+
+        let target;
+        if (nextItem === "vocabulary-review") {
+          target = document.getElementById("vocabulary");
+        } else {
+          target = document.querySelector(`[data-activity-id="${CSS.escape(nextItem)}"]`);
+        }
+
+        if (target) {
+          const reducedMotion = window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          target.scrollIntoView({
+            behavior: reducedMotion ? "auto" : "smooth",
+            block: "start"
+          });
+          const firstControl = target.querySelector("button, input, select");
+          if (firstControl) {
+            window.setTimeout(() => firstControl.focus(), reducedMotion ? 0 : 350);
+          }
+        }
+      });
+    }
+  },
+
+  reset() {
+    const searchInput = document.getElementById("vocab-search");
+    if (searchInput) {
+      searchInput.value = "";
+      searchInput.dispatchEvent(new Event("input"));
+    }
+
+    const reviewButton = document.getElementById("mark-vocab-complete");
+    if (reviewButton) {
+      reviewButton.disabled = false;
+      reviewButton.textContent = "Mark complete";
+    }
+
+    const answerKeyButton = document.getElementById("toggle-answer-key");
+    const answerKeyPanel = document.getElementById("answer-key-panel");
+    if (answerKeyButton && answerKeyPanel) {
+      answerKeyPanel.hidden = true;
+      answerKeyButton.setAttribute("aria-expanded", "false");
+      answerKeyButton.textContent = "Show answer key";
+    }
+
+    ["learner-name", "learner-class", "lesson-date"].forEach((id) => {
+      const control = document.getElementById(id);
+      if (control) {
+        control.value = "";
+      }
+    });
+  },
+
+  getState() {
+    return {
+      vocabularyReviewed: LearningSite.state.progress.completedItems.has("vocabulary-review")
+    };
+  },
+
+  restoreState() {
+    // Personal responses are intentionally not stored.
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  LearningSite.init();
+});
+
+  </script>
+</body>
+</html>
